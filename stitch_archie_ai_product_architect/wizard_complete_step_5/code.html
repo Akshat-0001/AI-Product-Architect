@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archie | Blueprint Ready</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#005cc6",
+                    "on-tertiary": "#571f00",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "on-tertiary-fixed": "#351000",
+                    "on-surface-variant": "#c7c4d8",
+                    "tertiary": "#ffb695",
+                    "tertiary-container": "#a44100",
+                    "surface-container-highest": "#2d3449",
+                    "on-error": "#690005",
+                    "surface-container": "#171f33",
+                    "inverse-surface": "#dae2fd",
+                    "inverse-on-surface": "#283044",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-background": "#dae2fd",
+                    "on-secondary-container": "#a9bad3",
+                    "on-primary-container": "#cddbff",
+                    "inverse-primary": "#005ac2",
+                    "surface-container-low": "#131b2e",
+                    "surface-variant": "#2d3449",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "surface-container-lowest": "#060e20",
+                    "on-primary-fixed-variant": "#004395",
+                    "outline-variant": "#464555",
+                    "surface-container-high": "#222a3d",
+                    "surface-tint": "#adc6ff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#adc6ff",
+                    "surface-bright": "#31394d",
+                    "primary": "#adc6ff",
+                    "on-surface": "#dae2fd",
+                    "error-container": "#93000a",
+                    "on-secondary": "#213145",
+                    "error": "#ffb4ab",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-container": "#ffd2be",
+                    "surface": "#0b1326",
+                    "outline": "#918fa1",
+                    "on-primary": "#002e6a",
+                    "background": "#0b1326",
+                    "secondary": "#b7c8e1",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-primary-fixed": "#001a42",
+                    "primary-fixed": "#d8e2ff",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdbcc",
+                    "secondary-container": "#3a4a5f",
+                    "surface-dim": "#0b1326"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-logo { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-mesh {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 92, 198, 0.15) 0%, rgba(11, 19, 38, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- Top Navigation (Shell suppressed/simplified for transactional wizard state) -->
+<header class="bg-[#0b1326] flex justify-between items-center w-full px-8 h-16 fixed top-0 z-50">
+<div class="text-xl font-bold text-[#adc6ff] tracking-wider font-['Plus_Jakarta_Sans']">
+            Archie
+        </div>
+<div class="flex gap-4">
+<button class="text-[#dae2fd]/60 hover:bg-[#2d3449]/50 transition-colors duration-300 px-4 py-2 rounded-lg font-['Plus_Jakarta_Sans'] font-semibold tracking-tight active:scale-95 transition-transform ease-out">
+                Cancel
+            </button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex items-center justify-center pt-16 px-6 bg-mesh">
+<div class="max-w-4xl w-full text-center space-y-12">
+<!-- Success Visualization (Blueprint Illustration) -->
+<div class="relative flex justify-center items-center">
+<!-- Decorative Glows -->
+<div class="absolute w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="relative z-10 w-full max-w-lg aspect-video rounded-xl bg-surface-container-low border border-outline-variant/10 overflow-hidden shadow-2xl backdrop-blur-sm">
+<img alt="Success Illustration" class="w-full h-full object-cover mix-blend-luminosity opacity-40" data-alt="Technical blueprint of a complex microservices architecture rendered in glowing electric blue lines on a dark obsidian background with bokeh light particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6cP6FxOEPDZjFoJvMIMrdauLvTE_sYu0y3CgGAOraFVQAc0w7bwATfUTh4_SHRXHxjoA3jUCMSgjvAI-NGovD7hrLAJ_ylCb5gVU5oFTnGDp5030jtNeNgs_nC2PyOmy6GDHDA190htiTTior3_jIW49XTmEBXSusr3fIKivkmmBUvrp9Rf3cA5gyfLXHKR25qbEb9rdcQrqP133vhxg22jzd4cOAusiAECkMzOIbYY2Ph0pjHn12F3EiFEdBr99LKK8U-s3jLGQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<!-- Floating Tech Cards (Asymmetric UI elements) -->
+<div class="absolute top-6 right-6 bg-surface-container-highest/80 backdrop-blur-md p-4 rounded-xl border border-outline-variant/20 shadow-lg text-left max-w-[180px]">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-primary">Compiled</span>
+</div>
+<div class="h-1.5 w-full bg-outline-variant/30 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+<div class="absolute bottom-10 left-6 bg-surface-container-highest/80 backdrop-blur-md p-4 rounded-xl border border-outline-variant/20 shadow-lg text-left max-w-[200px]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">terminal</span>
+</div>
+<div>
+<p class="text-xs font-semibold">Schema.v5</p>
+<p class="text-[10px] text-on-surface-variant">Architecture JSON ready</p>
+</div>
+</div>
+</div>
+<!-- Central Check Icon -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-gradient-to-br from-primary to-primary-container rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,92,198,0.4)]">
+<span class="material-symbols-outlined text-on-primary text-4xl" style="font-variation-settings: 'wght' 600;">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="space-y-6">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-on-surface tracking-tight leading-[1.1]">
+                    Your Blueprint is ready
+                </h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto font-body leading-relaxed">
+                    The AI Architect has finished synthesizing your requirements into a complete technical dossier.
+                </p>
+</div>
+<!-- Primary CTAs -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+<button class="w-full sm:w-auto px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-[0_10px_30px_-10px_rgba(0,92,198,0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                    View Blueprint
+                </button>
+<button class="w-full sm:w-auto px-10 py-4 border border-outline-variant/30 text-on-surface font-semibold rounded-xl hover:bg-surface-container-high transition-all duration-300 active:scale-95">
+                    Share Blueprint
+                </button>
+</div>
+</div>
+</main>
+<!-- Minimal Footer (Progress State) -->
+<footer class="h-24 flex items-center justify-center bg-surface-container-low">
+<div class="flex flex-col items-center gap-3">
+<div class="flex gap-2">
+<!-- Minimalist Dot system -->
+<div class="w-2 h-2 rounded-full bg-outline-variant/30"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant/30"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant/30"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant/30"></div>
+<div class="w-2 h-2 rounded-full bg-primary ring-4 ring-primary/20"></div>
+</div>
+<span class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">Step 5 of 5</span>
+</div>
+</footer>
+</body></html>

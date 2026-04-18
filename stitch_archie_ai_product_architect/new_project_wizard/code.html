@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#2d3449",
+                        "primary": "#adc6ff",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "tertiary-container": "#a44100",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container": "#171f33",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary": "#002e6a",
+                        "tertiary": "#ffb695",
+                        "outline-variant": "#464555",
+                        "on-surface-variant": "#c7c4d8",
+                        "inverse-on-surface": "#283044",
+                        "tertiary-fixed": "#ffdbcc",
+                        "secondary-container": "#3a4a5f",
+                        "primary-container": "#005cc6",
+                        "on-primary-container": "#cddbff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary": "#571f00",
+                        "secondary": "#b7c8e1",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#060e20",
+                        "surface-bright": "#31394d",
+                        "surface-variant": "#2d3449",
+                        "on-secondary-container": "#a9bad3",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-background": "#dae2fd",
+                        "inverse-surface": "#dae2fd",
+                        "inverse-primary": "#005ac2",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface": "#0b1326",
+                        "surface-container-high": "#222a3d",
+                        "surface-dim": "#0b1326",
+                        "on-tertiary-container": "#ffd2be",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#213145",
+                        "on-surface": "#dae2fd",
+                        "on-primary-fixed": "#001a42",
+                        "secondary-fixed": "#d3e4fe",
+                        "outline": "#918fa1",
+                        "surface-container-low": "#131b2e",
+                        "surface-tint": "#adc6ff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "background": "#0b1326",
+                        "on-secondary-fixed": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(45, 52, 73, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #adc6ff 0%, #005cc6 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background selection:bg-primary/30">
+<!-- Top Navigation (Shell Implementation) -->
+<!-- Applying style_shell_layout and style_bg_color from JSON -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-slate-950/60 backdrop-blur-xl">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold tracking-tighter text-slate-50 font-headline">Archie</span>
+</div>
+<!-- Navigation Shell suppressed for Task-Focused Wizard Flow as per Logic -->
+<div class="flex items-center gap-6">
+<button class="text-slate-400 hover:text-slate-50 transition-colors font-headline text-sm tracking-tight">Save Progress</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-error transition-colors" data-icon="close">close</button>
+</div>
+</nav>
+<!-- Main Wizard Canvas -->
+<main class="min-h-screen pt-24 pb-12 px-6 flex flex-col items-center">
+<!-- Stepper UI (Centered at top) -->
+<div class="w-full max-w-2xl mb-16">
+<div class="flex justify-between items-center mb-4">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-primary text-2xl tracking-tight">New Project Wizard</span>
+<span class="text-on-surface-variant text-sm font-label uppercase tracking-widest mt-1">Step 2: The Questioning Engine</span>
+</div>
+<div class="text-right">
+<span class="text-primary font-bold text-lg">Question 3 of 7</span>
+<div class="w-48 h-1.5 bg-surface-container-highest rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-primary transition-all duration-500 ease-out" style="width: 42%;"></div>
+</div>
+</div>
+</div>
+<!-- Minimalist Dot System -->
+<div class="flex gap-3 mt-8">
+<div class="w-3 h-3 rounded-full bg-primary/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<div class="w-3 h-3 rounded-full border border-outline-variant"></div>
+<div class="w-3 h-3 rounded-full border border-outline-variant"></div>
+<div class="w-3 h-3 rounded-full border border-outline-variant"></div>
+</div>
+</div>
+<!-- Questioning Engine Interface -->
+<div class="w-full max-w-3xl flex flex-col gap-8">
+<!-- Chat History (Previous Interactions) -->
+<div class="space-y-6 opacity-60">
+<!-- User Response 1 -->
+<div class="flex justify-end">
+<div class="bg-surface-container-high px-6 py-4 rounded-xl max-w-lg">
+<p class="text-on-surface-variant text-sm leading-relaxed">I want to build a platform for architectural design collaboration where 3D models can be reviewed in real-time.</p>
+</div>
+</div>
+<!-- Archie Analysis 1 -->
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full primary-gradient flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-primary text-sm" data-icon="architecture" data-weight="fill" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl max-w-lg border border-outline-variant/10">
+<p class="text-on-background text-sm leading-relaxed">That sounds like a complex high-concurrency environment. I've noted the real-time 3D requirement for the infrastructure layer.</p>
+</div>
+</div>
+</div>
+<!-- Current Active Question -->
+<div class="mt-8 space-y-8">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full primary-gradient flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-on-primary text-lg" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="space-y-6 flex-1">
+<div class="glass-panel p-8 rounded-xl border border-outline-variant/15">
+<h2 class="font-headline text-xl font-semibold mb-4 text-slate-50">Who are the primary users of this platform?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Quick Select Chips -->
+<button class="flex items-center gap-3 p-4 rounded-lg bg-surface-container-highest border border-outline-variant/20 hover:border-primary/50 transition-all group text-left">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="engineering">engineering</span>
+<div>
+<div class="text-slate-100 font-medium text-sm">Professional Architects</div>
+<div class="text-on-surface-variant text-xs">High-end CAD users and planners</div>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 rounded-lg bg-surface-container-highest border border-outline-variant/20 hover:border-primary/50 transition-all group text-left">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="groups">groups</span>
+<div>
+<div class="text-slate-100 font-medium text-sm">Real Estate Clients</div>
+<div class="text-on-surface-variant text-xs">Non-technical stakeholders for review</div>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 rounded-lg bg-surface-container-highest border border-outline-variant/20 hover:border-primary/50 transition-all group text-left">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="construction">construction</span>
+<div>
+<div class="text-slate-100 font-medium text-sm">Contractors &amp; Builders</div>
+<div class="text-on-surface-variant text-xs">Field access for blue-print execution</div>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 rounded-lg bg-surface-container-highest border border-outline-variant/20 hover:border-primary/50 transition-all group text-left">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="add_circle">add_circle</span>
+<div>
+<div class="text-slate-100 font-medium text-sm">Other User Type</div>
+<div class="text-on-surface-variant text-xs">Specify a custom user persona</div>
+</div>
+</button>
+</div>
+</div>
+<!-- AI Insight Sparkle (Tertiary Sparingly) -->
+<div class="flex items-center gap-3 px-4 py-2 bg-tertiary/10 border border-tertiary/20 rounded-full w-fit">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-tertiary-fixed text-xs font-medium">Archie Insight: This choice will impact the Authentication &amp; Role-Based Access logic.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar (Fixed but part of main flow logic) -->
+<div class="fixed bottom-0 left-0 w-full p-8 flex justify-center pointer-events-none">
+<div class="max-w-3xl w-full flex justify-between items-center pointer-events-auto bg-surface-container-lowest/80 backdrop-blur-md p-4 rounded-2xl border border-outline-variant/10">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-slate-50 transition-colors px-6 py-3">
+<span class="material-symbols-outlined text-lg" data-icon="arrow_back">arrow_back</span>
+<span class="font-label text-sm font-medium">Previous Question</span>
+</button>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-slate-50 font-label text-sm px-4">Skip</button>
+<button class="primary-gradient text-on-primary font-headline font-bold text-sm px-8 py-3 rounded-xl shadow-lg shadow-primary-container/20 hover:scale-[1.02] transition-all flex items-center gap-2">
+<span>Continue</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Background Aesthetic Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] bg-tertiary/5 blur-[120px] rounded-full"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.03]" style="background-image: radial-gradient(#adc6ff 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+</div>
+</main>
+</body></html>

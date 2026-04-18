@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Architect Canvas - New Project</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#464555",
+                        "secondary-container": "#3a4a5f",
+                        "secondary": "#b7c8e1",
+                        "on-tertiary-container": "#ffd2be",
+                        "on-surface": "#dae2fd",
+                        "primary-fixed-dim": "#adc6ff",
+                        "background": "#0b1326",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-tint": "#adc6ff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container-low": "#131b2e",
+                        "on-secondary": "#213145",
+                        "on-primary": "#002e6a",
+                        "error-container": "#93000a",
+                        "tertiary": "#ffb695",
+                        "surface-variant": "#2d3449",
+                        "inverse-on-surface": "#283044",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-fixed": "#351000",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-background": "#dae2fd",
+                        "surface-dim": "#0b1326",
+                        "surface-container": "#171f33",
+                        "on-tertiary": "#571f00",
+                        "primary": "#adc6ff",
+                        "surface-container-lowest": "#060e20",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-bright": "#31394d",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "on-secondary-container": "#a9bad3",
+                        "surface-container-high": "#222a3d",
+                        "outline": "#918fa1",
+                        "on-primary-fixed": "#001a42",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#2d3449",
+                        "on-primary-container": "#cddbff",
+                        "inverse-primary": "#005ac2",
+                        "primary-container": "#005cc6",
+                        "on-primary-fixed-variant": "#004395",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#a44100",
+                        "surface": "#0b1326",
+                        "on-surface-variant": "#c7c4d8",
+                        "secondary-fixed": "#d3e4fe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1326;
+        }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-[#131b2e] flex justify-between items-center px-8 py-4 z-50">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold text-[#adc6ff] font-['Plus_Jakarta_Sans'] tracking-tight">Architect Canvas</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-400 hover:text-[#adc6ff] transition-colors ease-out duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button class="text-slate-400 hover:text-[#adc6ff] transition-colors ease-out duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-6 pt-24 pb-32">
+<div class="w-full max-w-3xl space-y-12">
+<!-- Header Section -->
+<div class="text-center space-y-4">
+<h1 class="text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight leading-tight">
+                    What are we building today?
+                </h1>
+<p class="text-on-surface-variant text-lg font-light tracking-wide">
+                    Articulate your vision. We'll handle the architectural scaffolding.
+                </p>
+</div>
+<!-- Input Area -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-primary-container rounded-xl blur opacity-10 group-focus-within:opacity-25 transition duration-500"></div>
+<div class="relative bg-surface-container-highest rounded-xl overflow-hidden">
+<textarea class="w-full h-48 bg-transparent border-none text-on-surface p-8 text-xl focus:ring-0 placeholder:text-outline-variant resize-none" placeholder="Describe your idea..."></textarea>
+</div>
+</div>
+<!-- Suggestion Chips -->
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all duration-300 text-sm font-medium">
+                    E-commerce platform
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all duration-300 text-sm font-medium">
+                    SaaS dashboard
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all duration-300 text-sm font-medium">
+                    Social network
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all duration-300 text-sm font-medium">
+                    AI assistant
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar / Wizard Stepper Shell -->
+<footer class="fixed bottom-0 left-0 w-full h-24 bg-[#131b2e]/60 backdrop-blur-xl border-t border-[#464555]/15 shadow-[0_-40px_40px_rgba(218,226,253,0.06)] flex justify-around items-center px-12 z-50">
+<!-- Progress Labels -->
+<div class="flex items-center gap-12">
+<!-- Active Step: Idea -->
+<div class="flex flex-col items-center justify-center text-[#adc6ff] scale-110">
+<span class="material-symbols-outlined mb-1" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="text-[10px] uppercase tracking-widest font-['Inter']">Idea</span>
+</div>
+<!-- Inactive Step: Scope -->
+<div class="flex flex-col items-center justify-center text-slate-500 opacity-50 hover:opacity-100 transition-opacity cursor-not-allowed">
+<span class="material-symbols-outlined mb-1" data-icon="architecture">architecture</span>
+<span class="text-[10px] uppercase tracking-widest font-['Inter']">Scope</span>
+</div>
+<!-- Inactive Step: Review -->
+<div class="flex flex-col items-center justify-center text-slate-500 opacity-50 hover:opacity-100 transition-opacity cursor-not-allowed">
+<span class="material-symbols-outlined mb-1" data-icon="visibility">visibility</span>
+<span class="text-[10px] uppercase tracking-widest font-['Inter']">Review</span>
+</div>
+</div>
+<!-- Center Counter -->
+<div class="hidden md:block text-slate-400 font-medium tracking-tight">
+            Step 1 of 5
+        </div>
+<!-- CTA Action -->
+<div>
+<button class="px-10 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl opacity-50 cursor-not-allowed shadow-lg flex items-center gap-2 group transition-all duration-300">
+                Next
+                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+<!-- Decorative Subtle Glows -->
+<div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-tertiary/5 blur-[120px] rounded-full pointer-events-none"></div>
+</body></html>

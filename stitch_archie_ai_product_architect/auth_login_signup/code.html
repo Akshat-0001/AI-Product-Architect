@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archie - Authentication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#2d3449",
+                      "primary": "#adc6ff",
+                      "on-tertiary-fixed-variant": "#7b2f00",
+                      "tertiary-container": "#a44100",
+                      "on-tertiary-fixed": "#351000",
+                      "surface-container": "#171f33",
+                      "primary-fixed": "#d8e2ff",
+                      "on-primary": "#002e6a",
+                      "tertiary": "#ffb695",
+                      "outline-variant": "#464555",
+                      "on-surface-variant": "#c7c4d8",
+                      "inverse-on-surface": "#283044",
+                      "tertiary-fixed": "#ffdbcc",
+                      "secondary-container": "#3a4a5f",
+                      "primary-container": "#005cc6",
+                      "on-primary-container": "#cddbff",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "on-tertiary": "#571f00",
+                      "secondary": "#b7c8e1",
+                      "on-error": "#690005",
+                      "surface-container-lowest": "#060e20",
+                      "surface-bright": "#31394d",
+                      "surface-variant": "#2d3449",
+                      "on-secondary-container": "#a9bad3",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-background": "#dae2fd",
+                      "inverse-surface": "#dae2fd",
+                      "inverse-primary": "#005ac2",
+                      "error-container": "#93000a",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-primary-fixed-variant": "#004395",
+                      "surface": "#0b1326",
+                      "surface-container-high": "#222a3d",
+                      "surface-dim": "#0b1326",
+                      "on-tertiary-container": "#ffd2be",
+                      "error": "#ffb4ab",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary": "#213145",
+                      "on-surface": "#dae2fd",
+                      "on-primary-fixed": "#001a42",
+                      "secondary-fixed": "#d3e4fe",
+                      "outline": "#918fa1",
+                      "surface-container-low": "#131b2e",
+                      "surface-tint": "#adc6ff",
+                      "tertiary-fixed-dim": "#ffb695",
+                      "background": "#0b1326",
+                      "on-secondary-fixed": "#0b1c30"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(45, 52, 73, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .gradient-button {
+            background: linear-gradient(135deg, #adc6ff 0%, #005cc6 100%);
+        }
+        .ghost-border {
+            border: 1px solid rgba(70, 69, 85, 0.15);
+        }
+      </style>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+<!-- Background Architectural Elements (Organic Structuralism) -->
+<div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[120px] -z-10"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-tertiary-container/5 rounded-full blur-[100px] -z-10"></div>
+<!-- Minimal Branding Header -->
+<div class="mb-12 text-center">
+<h1 class="font-headline font-extrabold text-4xl tracking-tighter text-slate-50 mb-2">Archie</h1>
+<p class="text-on-surface-variant font-label text-sm tracking-widest uppercase opacity-70">Product Architect Console</p>
+</div>
+<!-- Auth Container -->
+<main class="w-full max-w-md">
+<div class="glass-panel ghost-border rounded-xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+<!-- Auth Toggle Tab -->
+<div class="flex p-1 bg-surface-container-low rounded-lg mb-8">
+<button class="flex-1 py-2 text-sm font-label font-semibold text-primary bg-surface-container rounded-lg transition-all duration-300">
+                    Log In
+                </button>
+<button class="flex-1 py-2 text-sm font-label font-semibold text-on-surface-variant hover:text-on-surface transition-all duration-300">
+                    Sign Up
+                </button>
+</div>
+<div class="space-y-6">
+<!-- Social Auth -->
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-highest/50 hover:bg-surface-container-highest text-on-surface rounded-xl font-label text-sm font-medium transition-all duration-200 ghost-border">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+</svg>
+                    Continue with GitHub
+                </button>
+<!-- Divider -->
+<div class="flex items-center gap-4 py-2">
+<div class="h-px flex-1 bg-outline-variant/20"></div>
+<span class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant/60 font-semibold">or email</span>
+<div class="h-px flex-1 bg-outline-variant/20"></div>
+</div>
+<!-- Form Fields -->
+<form action="#" class="space-y-4">
+<div class="space-y-2">
+<label class="block text-xs font-label font-semibold text-on-surface-variant uppercase tracking-wider ml-1" for="email">Work Email</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-highest/40 border-0 rounded-xl py-3.5 pl-4 pr-10 text-on-surface placeholder:text-on-surface-variant/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300" id="email" placeholder="name@company.com" type="email"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/40 text-lg group-focus-within:text-primary transition-colors">alternate_email</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="block text-xs font-label font-semibold text-on-surface-variant uppercase tracking-wider" for="password">Password</label>
+<a class="text-[10px] font-label text-primary/60 hover:text-primary transition-colors uppercase tracking-tight" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<input class="w-full bg-surface-container-highest/40 border-0 rounded-xl py-3.5 pl-4 pr-10 text-on-surface placeholder:text-on-surface-variant/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300" id="password" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/40 text-lg group-focus-within:text-primary transition-colors">lock</span>
+</div>
+</div>
+<button class="w-full gradient-button text-on-primary font-headline font-bold py-4 rounded-xl shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 mt-6" type="submit">
+                        Access Workspace
+                    </button>
+</form>
+</div>
+<!-- Footer Text -->
+<p class="mt-8 text-center text-xs text-on-surface-variant/60 font-label leading-relaxed">
+                By continuing, you agree to Archie's <br/>
+<a class="text-on-surface-variant hover:text-on-surface underline underline-offset-4 decoration-outline-variant/30" href="#">Terms of Service</a> and <a class="text-on-surface-variant hover:text-on-surface underline underline-offset-4 decoration-outline-variant/30" href="#">Privacy Policy</a>.
+            </p>
+<!-- Decorative Glow behind content -->
+<div class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+</div>
+<!-- System Status Indicator (Architectural Detail) -->
+<div class="mt-8 flex items-center justify-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-label text-on-surface-variant/40 uppercase tracking-widest">Archie Core 2.4.0 Online</span>
+</div>
+<div class="h-4 w-px bg-outline-variant/20"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-on-surface-variant/40">encrypted</span>
+<span class="text-[10px] font-label text-on-surface-variant/40 uppercase tracking-widest">Secure Handshake</span>
+</div>
+</div>
+</main>
+<!-- Global Background Elements -->
+<div class="fixed inset-0 pointer-events-none -z-20">
+<!-- Subtle Grid -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #adc6ff 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+</body></html>

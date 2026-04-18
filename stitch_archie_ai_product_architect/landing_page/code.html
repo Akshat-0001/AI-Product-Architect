@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archie | AI Product Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#2d3449",
+                        "primary": "#adc6ff",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "tertiary-container": "#a44100",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container": "#171f33",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary": "#002e6a",
+                        "tertiary": "#ffb695",
+                        "outline-variant": "#464555",
+                        "on-surface-variant": "#c7c4d8",
+                        "inverse-on-surface": "#283044",
+                        "tertiary-fixed": "#ffdbcc",
+                        "secondary-container": "#3a4a5f",
+                        "primary-container": "#005cc6",
+                        "on-primary-container": "#cddbff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary": "#571f00",
+                        "secondary": "#b7c8e1",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#060e20",
+                        "surface-bright": "#31394d",
+                        "surface-variant": "#2d3449",
+                        "on-secondary-container": "#a9bad3",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-background": "#dae2fd",
+                        "inverse-surface": "#dae2fd",
+                        "inverse-primary": "#005ac2",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface": "#0b1326",
+                        "surface-container-high": "#222a3d",
+                        "surface-dim": "#0b1326",
+                        "on-tertiary-container": "#ffd2be",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#213145",
+                        "on-surface": "#dae2fd",
+                        "on-primary-fixed": "#001a42",
+                        "secondary-fixed": "#d3e4fe",
+                        "outline": "#918fa1",
+                        "surface-container-low": "#131b2e",
+                        "surface-tint": "#adc6ff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "background": "#0b1326",
+                        "on-secondary-fixed": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0b1326; color: #dae2fd; }
+        .font-plus-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(45, 52, 73, 0.6); backdrop-filter: blur(20px); }
+        .cta-gradient { background: linear-gradient(135deg, #adc6ff 0%, #005cc6 100%); }
+    </style>
+</head>
+<body class="selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-slate-950/60 backdrop-blur-xl">
+<div class="text-xl font-bold tracking-tighter text-slate-50 font-plus-jakarta">Archie</div>
+<div class="hidden md:flex gap-8 items-center font-plus-jakarta text-sm tracking-tight">
+<a class="text-indigo-400 font-semibold hover:text-indigo-300 transition-colors" href="#">Features</a>
+<a class="text-slate-400 hover:text-indigo-300 transition-colors" href="#">Solutions</a>
+<a class="text-slate-400 hover:text-indigo-300 transition-colors" href="#">Pricing</a>
+<a class="text-slate-400 hover:text-indigo-300 transition-colors" href="#">Documentation</a>
+</div>
+<div class="flex gap-4 items-center">
+<button class="text-slate-400 font-plus-jakarta text-sm hover:text-slate-100 transition-all">Log In</button>
+<button class="cta-gradient px-5 py-2 rounded-lg text-on-primary font-semibold text-sm font-plus-jakarta shadow-lg shadow-primary/10">Get Started</button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+<!-- Decorative Gradients -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-tertiary/5 blur-[120px] rounded-full"></div>
+<div class="relative z-10 max-w-4xl">
+<h1 class="font-plus-jakarta text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight text-on-surface mb-6">
+                    Build your product blueprint <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">in minutes</span>, not weeks.
+                </h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-10 font-body leading-relaxed">
+                    Archie is the world's first AI Product Architect. Translate your vision into detailed PRDs, database schemas, and API documentation with precision.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="cta-gradient px-8 py-4 rounded-xl text-on-primary font-bold text-lg font-plus-jakarta flex items-center gap-3 group transition-transform hover:scale-[1.02]">
+                        Start Building
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="px-8 py-4 rounded-xl text-on-surface border border-outline-variant/20 font-semibold text-lg font-plus-jakarta hover:bg-surface-container-low transition-colors">
+                        View Sample Blueprint
+                    </button>
+</div>
+<!-- Social Proof Counter -->
+<div class="mt-16 flex items-center justify-center gap-8 opacity-70">
+<div class="text-center">
+<div class="text-3xl font-bold text-primary font-plus-jakarta">42,840+</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-label">Blueprints Generated</div>
+</div>
+<div class="w-px h-10 bg-outline-variant/30"></div>
+<div class="text-center">
+<div class="text-3xl font-bold text-primary font-plus-jakarta">98.4%</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-label">Architect Accuracy</div>
+</div>
+</div>
+</div>
+<!-- Hero Abstract Visual -->
+<div class="mt-20 w-full max-w-5xl rounded-2xl overflow-hidden border border-outline-variant/10 shadow-2xl relative aspect-[16/9]">
+<img alt="Dashboard Interface" class="w-full h-full object-cover" data-alt="Futuristic glowing digital dashboard with complex nodes and data visualizations in deep navy and electric indigo colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_dG6i5Z-R1ZshASu4LciGYgfIT-1Qi0UOBeS1ViiOW3wZy2IPA2MXUaiSfgpyIe6Qt7uahMClUHRlSV2Taoolo-MIaZ0z8zMHTm06YJ_55uh6GRoZsqDee2Z7Qv5hMqTsp_gXBDYPF4BYBOFwMa5qIeaCbVzbr2RgCpq_V75fdAK2SB6pibEfZvLmuw06wV5WRgp7XCv5eA-Nip5V4MqSJHSp_uYiR4ScDkH6uJDNdhGl12H5l_-SAoyjNZgZcjQftGcRVNCJr04"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+</section>
+<!-- Features: 3-Step Explainer -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-plus-jakarta text-3xl md:text-4xl font-bold text-on-surface mb-4">Precision Engineering for Ideas</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Skip the blank page. Our AI engine processes logic, not just language.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="glass-panel p-8 rounded-3xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl">edit_note</span>
+</div>
+<h3 class="font-plus-jakarta text-xl font-bold text-slate-50 mb-4">1. Describe</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Tell Archie about your product vision in plain English. No technical jargon required.</p>
+</div>
+<!-- Step 2 -->
+<div class="glass-panel p-8 rounded-3xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center mb-6 text-tertiary">
+<span class="material-symbols-outlined text-3xl">forum</span>
+</div>
+<h3 class="font-plus-jakarta text-xl font-bold text-slate-50 mb-4">2. Answer</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Archie asks targeted questions about user roles, data flows, and edge cases to refine your logic.</p>
+</div>
+<!-- Step 3 -->
+<div class="glass-panel p-8 rounded-3xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">architecture</span>
+</div>
+<h3 class="font-plus-jakarta text-xl font-bold text-slate-50 mb-4">3. Get Blueprint</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Receive a complete technical dossier including ERDs, API schemas, and comprehensive user stories.</p>
+</div>
+</div>
+</section>
+<!-- Style Preview Strip -->
+<section class="py-12 bg-surface-container-low/50">
+<div class="text-center mb-10 px-8">
+<span class="text-xs uppercase tracking-[0.3em] text-primary font-bold">Output Formats</span>
+</div>
+<div class="flex overflow-hidden gap-6 px-8 select-none">
+<div class="flex-none w-64 h-40 rounded-xl overflow-hidden border border-outline-variant/20 hover:scale-105 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="Technical data visualization with clean charts and dark blue theme" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2piw_SbcaK67NZPmQ_vqsS2pOYBH7y-p4VD739mH-ESKW3lWTdEmHXjTZdehbwzi_d3LKgIGcb8oorOPOjPkEePobjjRL5mbYYEfS6tLqocpsZPpsb9N5ql5lyMH5MWcIAMvEg4CxujCEZ2VCvS9r98YJg6Ggz_V_TmuPaEYPORQPb6-tAiCBtQXmz_p39dN46z7Un11rwZPZmKcjdWWOQlQV5Kv0tkvzexFOnU9ETGYzkpLTMR1BFBIkB3CR4U0ZhFfzdQ3rzGo"/>
+</div>
+<div class="flex-none w-64 h-40 rounded-xl overflow-hidden border border-outline-variant/20 hover:scale-105 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="System architecture diagram with nodes and connecting lines in neon blue on black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1f9L_9VErJvxHoRd8K0ANCWGn5-wJhlS8Qx5Vjp4i3RI2PQ8FiDs7YDU607S1enm7GUsU5xmznUvzjpMY1bZ9rtuKwnBadBpnOdUMtxCyHPHebr6Rd4d1aISxQOTrFyChKNizSFdIgwK0LjxZJ2fUK5GIhmAczrAA2YgehyztbS-JTaMxoW-lSlHyotrHmPmNP2l_1_nfo0GZQ4Iv06-qbpWGq7W_PfOSOfh32mP7SPw-_Pl-z5U7DnskahYhCfkfPYTeaIOn6ks"/>
+</div>
+<div class="flex-none w-64 h-40 rounded-xl overflow-hidden border border-outline-variant/20 hover:scale-105 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="Clean spreadsheet and documentation layout with minimalist UI elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBizCnZMFUAvtOFoi6GxMbQvOFkqtrsKTk5o3WKq7Eq_i9tK7Ej26Ln0QMDEWMx1_Z633O79b_BmQ66GHDG-UBihXSbxqGzxNbdX7PqssDyigOuPpA9n8SrFUaBXiWiVSj_nMAdDG47R-pDInxR0JKZnUfNhRkd0zNRXNv3zmbDilGN7cfJ63RJPmVx9cs4rwkIcWraAYqi1TlsaWEp5PhTVVk2okHxmOkLJkRG5oukkiX5jn_ZZAcQcckfqf29valSVWdRZh6z4gA"/>
+</div>
+<div class="flex-none w-64 h-40 rounded-xl overflow-hidden border border-outline-variant/20 hover:scale-105 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="UI design system style guide with color palettes and typography examples" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaWzmTfWmt-U3_SnbhZXQhOzQ6unzqY5Klo88M5Y8M4N_T9CiQwVM5uqiD5EwKrLQ1f0gEouRgy4KAof02EI6_UCZt_pePE-tJhGorAnEmwAH8tsLofcjc7SwPTNiCCjgWiJ2oODbjeX3rOmTrBpMEThkCfImEW7gnXxSzwMMh6retX5EISSA_LzbEj8aPehVwmoazz-YGlfEpPt43CAZ9-voK0k3UhzizQynCJdA05B0W1a-BKXL9ZLU-rnKGB7lTVbF6K185UJQ"/>
+</div>
+<div class="flex-none w-64 h-40 rounded-xl overflow-hidden border border-outline-variant/20 hover:scale-105 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="Modern code editor with syntax highlighted database schema definition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH-wU26XsO9Jz-49W3sQljhdRvaJ4kWnaw85NyVsvY1k6N47Ru4nY8ciD07IgSkm90EpKsH1MVAs_968zoiIP8-VUTfLXIaJjquWM37bD7EcFW2ETezGdeoKyNgrmP1j4RziFrXweMzzv5kqXMBdC6BRxZENzNRr9RCugGVpy9erR_DlcvpW_J6d15TnYRmGZDlEZg7nM4cnmoO7aavZBvomfU3rRdQwGn1RfaQ8jXIEYVIxlxAr0_h1gFQbE30eVxpMoPKezz2SQ"/>
+</div>
+<div class="flex-none w-64 h-40 rounded-xl overflow-hidden border border-outline-variant/20 hover:scale-105 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="Project management board with organized cards and progress indicators" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv8C2hjhCJmY1trDB39M8Dz3PtPtFYZq4vhS6S8KppuBgtPVF544vxxM-qtezzdhQQdELlqsphWDeD3pVXOsHQ6Ca-vJG2rS9gH3xuKbFKkh10JIWioOmhCS3ScJvsiT_iJw6qzCrXMoLMmT08tEa6xunNMO3g-rSw7nu5X9xCwO6CkyMFVRwUYUrwooKYqnc78rhGdmAJgW_E76IW4As9LRrNxQRtyaNk7mq6xn9wNMiU4yAxf1DRIaArCICjPeKwTRCmRwe6t2I"/>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-8 text-center relative">
+<div class="max-w-4xl mx-auto glass-panel py-16 px-10 rounded-[3rem] border border-outline-variant/10 shadow-2xl overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<h2 class="font-plus-jakarta text-4xl font-extrabold text-on-surface mb-6">Stop guessing. Start building.</h2>
+<p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">Join thousands of founders and product managers who use Archie to de-risk their technical roadmaps.</p>
+<div class="flex justify-center">
+<button class="cta-gradient px-12 py-5 rounded-2xl text-on-primary font-bold text-xl font-plus-jakarta shadow-2xl shadow-primary/20 hover:scale-105 transition-transform">
+                        Launch Your First Project
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-20 px-8 border-t border-outline-variant/5">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-16">
+<div class="col-span-2">
+<div class="text-2xl font-bold tracking-tighter text-slate-50 font-plus-jakarta mb-6">Archie</div>
+<p class="text-on-surface-variant text-sm max-w-xs mb-6">The AI-native platform designed for product architects, engineers, and visionary founders.</p>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">share</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">terminal</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-plus-jakarta text-sm font-bold text-slate-100 mb-6 uppercase tracking-widest">Platform</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary" href="#">Features</a></li>
+<li><a class="hover:text-primary" href="#">Integrations</a></li>
+<li><a class="hover:text-primary" href="#">Pricing</a></li>
+<li><a class="hover:text-primary" href="#">Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-plus-jakarta text-sm font-bold text-slate-100 mb-6 uppercase tracking-widest">Company</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+<li><a class="hover:text-primary" href="#">Blog</a></li>
+<li><a class="hover:text-primary" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-plus-jakarta text-sm font-bold text-slate-100 mb-6 uppercase tracking-widest">Legal</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary" href="#">Privacy</a></li>
+<li><a class="hover:text-primary" href="#">Terms</a></li>
+<li><a class="hover:text-primary" href="#">Security</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-plus-jakarta text-sm font-bold text-slate-100 mb-6 uppercase tracking-widest">Status</h4>
+<div class="flex items-center gap-2 text-primary text-sm font-medium">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    All Systems Operational
+                </div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-outline-variant/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-xs">© 2024 Archie AI Inc. Built for the modern architect.</p>
+<div class="flex gap-6 text-xs text-on-surface-variant font-label uppercase tracking-tighter">
+<span>v2.4.0 (Latest Release)</span>
+<span class="text-primary cursor-pointer hover:underline">Download CLI</span>
+</div>
+</div>
+</footer>
+</body></html>

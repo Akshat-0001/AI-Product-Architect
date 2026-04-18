@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "tertiary": "#ffb695",
+                  "surface-container-low": "#131b2e",
+                  "error": "#ffb4ab",
+                  "secondary-fixed-dim": "#b7c8e1",
+                  "on-tertiary-fixed-variant": "#7b2f00",
+                  "on-primary-fixed-variant": "#004395",
+                  "tertiary-fixed-dim": "#ffb695",
+                  "tertiary-fixed": "#ffdbcc",
+                  "surface-dim": "#0b1326",
+                  "surface-bright": "#31394d",
+                  "background": "#0b1326",
+                  "secondary": "#b7c8e1",
+                  "on-tertiary-container": "#ffd2be",
+                  "on-error": "#690005",
+                  "inverse-primary": "#005ac2",
+                  "inverse-on-surface": "#283044",
+                  "on-tertiary-fixed": "#351000",
+                  "on-primary-fixed": "#001a42",
+                  "on-secondary-container": "#a9bad3",
+                  "secondary-fixed": "#d3e4fe",
+                  "tertiary-container": "#a44100",
+                  "on-surface": "#dae2fd",
+                  "outline": "#918fa1",
+                  "surface-container": "#171f33",
+                  "surface-container-high": "#222a3d",
+                  "on-primary-container": "#cddbff",
+                  "on-background": "#dae2fd",
+                  "on-tertiary": "#571f00",
+                  "on-secondary-fixed": "#0b1c30",
+                  "on-secondary-fixed-variant": "#38485d",
+                  "secondary-container": "#3a4a5f",
+                  "primary-fixed": "#d8e2ff",
+                  "outline-variant": "#464555",
+                  "primary-fixed-dim": "#adc6ff",
+                  "on-error-container": "#ffdad6",
+                  "surface": "#0b1326",
+                  "surface-tint": "#adc6ff",
+                  "on-primary": "#002e6a",
+                  "primary": "#adc6ff",
+                  "on-secondary": "#213145",
+                  "inverse-surface": "#dae2fd",
+                  "on-surface-variant": "#c7c4d8",
+                  "surface-container-highest": "#2d3449",
+                  "error-container": "#93000a",
+                  "primary-container": "#005cc6",
+                  "surface-variant": "#2d3449",
+                  "surface-container-lowest": "#060e20"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-panel {
+      background: rgba(45, 52, 73, 0.6);
+      backdrop-filter: blur(20px);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #464555;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen flex overflow-hidden">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full z-40 w-[240px] h-screen bg-slate-900/50 backdrop-blur-xl border-r border-white/5 flex flex-col">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="text-indigo-400 font-bold tracking-tighter font-headline text-lg">Archie Blueprint</h1>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest">Product Architect</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors duration-200 font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined text-lg">architecture</span>
+<span>Blueprints</span>
+</a>
+<!-- ACTIVE TAB: User Stories -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-indigo-400 font-semibold border-l-4 border-indigo-500 bg-indigo-500/10 font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span>User Stories</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors duration-200 font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined text-lg">extension</span>
+<span>Modules</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors duration-200 font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined text-lg">account_tree</span>
+<span>Architecture</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors duration-200 font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>New Story</span>
+</button>
+<div class="flex items-center gap-3 px-2 py-3 bg-slate-800/40 rounded-xl">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-white/10 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional product architect headshot with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL5DFAQfz6rucariTN45ILNr92rKrmIP7VAAHNGv-Fgd2ldCLXFMCwrqjT3oAH_S_4IfJmNnBW6n3TgRHRq9JJ5xeFEjRIqyblOtOXzdaKTDnnzVnlCMVENdoyBxV0c_rgCVp2Fsuyeim4VZwuIqKUFlr3Suzc4HhlvHezK6XCq7DWU5mCtKCK_Xw4NhUN6qg2TXBgCm9V8F3CwkYh66vbKz9XazyVf9tk3Nhi1xRKNCa68YmQgsbrNKm88H9s_I_nZJN9euGfUn8"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-100 truncate">Alex Rivera</p>
+<p class="text-[11px] text-slate-400 truncate">Archie Pro Plan</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Secondary Inner Navigation (Sub-Nav) -->
+<aside class="fixed left-[240px] top-0 h-full w-[220px] bg-surface-container-low z-30 pt-20 px-4">
+<div class="mb-6 px-2">
+<p class="text-[10px] text-outline tracking-[0.2em] font-bold uppercase mb-4">Project Explorer</p>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">layers</span>
+<span>Architecture</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">database</span>
+<span>Database</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">api</span>
+<span>API Specs</span>
+</a>
+<div class="flex items-center gap-3 px-3 py-2 text-sm text-primary bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-lg">list_alt</span>
+<span class="font-medium">User Stories</span>
+</div>
+</div>
+</div>
+<!-- AI Insight Callout in Side Panel -->
+<div class="mt-12 p-4 rounded-xl bg-tertiary-container/10 border border-tertiary/20">
+<div class="flex items-center gap-2 mb-2 text-tertiary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="text-xs font-bold font-headline uppercase tracking-wider">AI Insight</span>
+</div>
+<p class="text-xs text-on-tertiary-container leading-relaxed">
+        Try "Thin Slice" mapping. Break stories down into the smallest possible functional path to validate architectural assumptions early.
+      </p>
+</div>
+</aside>
+<!-- Main Work Stage -->
+<main class="ml-[460px] flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar Anchor -->
+<header class="flex justify-between items-center w-full px-8 py-4 bg-[#0b1326] border-b border-white/5 z-20">
+<div class="flex items-center gap-4">
+<span class="text-slate-400 font-headline text-lg">Workspace / </span>
+<span class="text-xl font-black text-slate-100 font-headline">User Stories</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 text-sm text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary" placeholder="Search stories..." type="text"/>
+</div>
+<div class="flex items-center gap-4 border-l border-white/10 pl-6">
+<button class="text-slate-400 hover:text-indigo-300 transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-400 hover:text-indigo-300 transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Stories List -->
+<section class="w-[60%] overflow-y-auto custom-scrollbar p-8 bg-surface space-y-10">
+<!-- Epic Group: Authentication -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">lock_open</span>
+<h2 class="text-headline-sm font-headline text-on-surface font-bold">Epic: Authentication</h2>
+</div>
+<span class="text-[10px] text-outline font-bold uppercase tracking-widest">3 Stories</span>
+</div>
+<div class="space-y-4">
+<!-- Story Card 1 -->
+<div class="group p-6 rounded-2xl bg-surface-container-low border border-transparent hover:border-primary/20 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-error/10 text-error">High Priority</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-primary-container/20 text-primary">Validated</span>
+</div>
+<span class="text-[11px] text-outline font-mono">AUTH-001</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                As a <span class="text-on-surface font-semibold">User</span>, I want to <span class="text-on-surface font-semibold">sign in using OAuth2</span>, so that <span class="text-on-surface font-semibold">I don't have to manage another set of credentials</span>.
+              </p>
+</div>
+<!-- Story Card 2 (Active/Selected) -->
+<div class="p-6 rounded-2xl bg-surface-container-high border border-primary/40 shadow-xl shadow-primary/5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-tertiary/10 text-tertiary">Medium Priority</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-surface-container-highest text-outline">Proposed</span>
+</div>
+<span class="text-[11px] text-primary font-mono font-bold">AUTH-002</span>
+</div>
+<p class="text-on-surface leading-relaxed">
+                As an <span class="font-semibold text-primary">Administrator</span>, I want to <span class="font-semibold text-primary">force MFA for specific roles</span>, so that <span class="font-semibold text-primary">we can maintain high security for sensitive data</span>.
+              </p>
+</div>
+<!-- Story Card 3 -->
+<div class="group p-6 rounded-2xl bg-surface-container-low border border-transparent hover:border-primary/20 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-outline-variant/20 text-outline">Low Priority</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-primary-container/20 text-primary">Validated</span>
+</div>
+<span class="text-[11px] text-outline font-mono">AUTH-003</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                As a <span class="text-on-surface font-semibold">Guest</span>, I want to <span class="text-on-surface font-semibold">request a password reset</span>, so that <span class="text-on-surface font-semibold">I can regain access if forgotten</span>.
+              </p>
+</div>
+</div>
+</div>
+<!-- Epic Group: Project Management -->
+<div class="pt-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h2 class="text-headline-sm font-headline text-on-surface font-bold">Module: Project Management</h2>
+</div>
+<span class="text-[10px] text-outline font-bold uppercase tracking-widest">5 Stories</span>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low border border-transparent hover:border-primary/20 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-error/10 text-error">High Priority</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-surface-container-highest text-outline">Proposed</span>
+</div>
+<span class="text-[11px] text-outline font-mono">PM-014</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                As a <span class="text-on-surface font-semibold">Project Lead</span>, I want to <span class="text-on-surface font-semibold">visualize the roadmap via Gantt Chart</span>, so that <span class="text-on-surface font-semibold">I can identify resource bottlenecks early</span>.
+              </p>
+</div>
+</div>
+</section>
+<!-- Details Panel (Acceptance Criteria) -->
+<section class="w-[40%] bg-surface-container-low border-l border-white/5 flex flex-col">
+<div class="p-8 flex-1 overflow-y-auto custom-scrollbar">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline text-xl font-bold text-on-surface">Details: AUTH-002</h3>
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined text-outline">edit</span>
+</button>
+</div>
+<div class="mb-10">
+<label class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] block mb-4">Acceptance Criteria</label>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container/50 border border-white/5">
+<div class="mt-0.5">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Admin must be able to toggle MFA requirement at the Role Level (Manager, Developer, Viewer).</p>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container/50 border border-white/5">
+<div class="mt-0.5">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">System must support TOTP (Time-based One-Time Password) via Authenticator apps.</p>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container/50 border border-white/5">
+<div class="mt-0.5">
+<span class="material-symbols-outlined text-outline text-xl">check_box_outline_blank</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Users without MFA configured must be prompted to set it up at next login after role assignment.</p>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container/50 border border-white/5">
+<div class="mt-0.5">
+<span class="material-symbols-outlined text-outline text-xl">check_box_outline_blank</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Admin audit log must track when MFA requirements are enabled/disabled for any role.</p>
+</div>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] block mb-4">Linked Architecture</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 rounded-xl bg-surface-container-high border border-white/5 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-outline">schema</span>
+<span class="text-[11px] font-medium">User Schema v2</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-high border border-white/5 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-outline">api</span>
+<span class="text-[11px] font-medium">/auth/mfa-verify</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-8 bg-surface-container-high border-t border-white/5 flex gap-4">
+<button class="flex-1 bg-surface-container-highest text-on-surface text-sm font-semibold py-3 rounded-xl hover:bg-surface-bright transition-colors">
+            Discard Changes
+          </button>
+<button class="flex-1 bg-primary text-on-primary text-sm font-semibold py-3 rounded-xl hover:opacity-90 transition-opacity">
+            Save Progress
+          </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Global FAB (Contextual for Home/Dashboard/Stories) -->
+<button class="fixed bottom-10 right-10 w-14 h-14 bg-tertiary rounded-2xl shadow-2xl shadow-tertiary/20 text-on-tertiary flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">psychiatry</span>
+</button>
+</body></html>

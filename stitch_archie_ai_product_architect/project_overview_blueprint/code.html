@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archie | Project Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(45, 52, 73, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .ghost-border {
+            border: 1px solid rgba(70, 69, 85, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1326;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d3449;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#31394d",
+                      "primary-fixed": "#d8e2ff",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "surface-container": "#171f33",
+                      "background": "#0b1326",
+                      "on-surface": "#dae2fd",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-primary-container": "#cddbff",
+                      "on-surface-variant": "#c7c4d8",
+                      "surface-container-highest": "#2d3449",
+                      "surface-variant": "#2d3449",
+                      "on-tertiary-fixed": "#351000",
+                      "surface-container-high": "#222a3d",
+                      "outline": "#918fa1",
+                      "on-tertiary-container": "#ffd2be",
+                      "on-primary-fixed-variant": "#004395",
+                      "on-primary": "#002e6a",
+                      "on-secondary-fixed": "#0b1c30",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#a9bad3",
+                      "outline-variant": "#464555",
+                      "on-tertiary-fixed-variant": "#7b2f00",
+                      "surface-tint": "#adc6ff",
+                      "secondary-container": "#3a4a5f",
+                      "surface-container-lowest": "#060e20",
+                      "surface": "#0b1326",
+                      "surface-container-low": "#131b2e",
+                      "on-tertiary": "#571f00",
+                      "tertiary-fixed": "#ffdbcc",
+                      "on-secondary": "#213145",
+                      "secondary": "#b7c8e1",
+                      "primary-container": "#005cc6",
+                      "surface-dim": "#0b1326",
+                      "on-background": "#dae2fd",
+                      "inverse-primary": "#005ac2",
+                      "on-primary-fixed": "#001a42",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#283044",
+                      "tertiary-container": "#a44100",
+                      "tertiary-fixed-dim": "#ffb695",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#adc6ff",
+                      "inverse-surface": "#dae2fd",
+                      "tertiary": "#ffb695"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Shell -->
+<header class="bg-[#131b2e] border-none w-full h-16 fixed top-0 z-50 flex justify-between items-center px-6 transition-colors ease-out duration-300">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-[#adc6ff] font-headline">Architect Canvas</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-[#adc6ff] font-semibold font-headline text-sm tracking-tight hover:bg-[#2d3449]/50 transition-colors px-3 py-1 rounded" href="#">Blueprints</a>
+<a class="text-slate-400 font-headline text-sm tracking-tight hover:bg-[#2d3449]/50 transition-colors px-3 py-1 rounded" href="#">Infrastructure</a>
+<a class="text-slate-400 font-headline text-sm tracking-tight hover:bg-[#2d3449]/50 transition-colors px-3 py-1 rounded" href="#">Security</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group hidden sm:block">
+<div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+</div>
+<input class="bg-surface-container-highest border-none rounded-xl pl-10 pr-4 py-1.5 text-sm focus:ring-1 focus:ring-primary w-64 text-on-surface-variant placeholder-slate-500" placeholder="Search architecture..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-[#2d3449]/50 transition-colors rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-[#2d3449]/50 transition-colors rounded-full">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-[#2d3449]/50 transition-colors rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-[240px] bg-[#131b2e] flex flex-col py-8 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-lg" data-weight="fill">architecture</span>
+</div>
+<div>
+<h2 class="text-on-surface font-medium text-sm">Core Infrastructure</h2>
+<p class="text-slate-500 text-[0.7rem]">V2.4.0-Stable</p>
+</div>
+</div>
+<button class="w-full mt-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold py-2 rounded-xl text-xs hover:opacity-90 transition-all">
+                New Module
+            </button>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-[#adc6ff] font-medium border-l-4 border-[#4F46E5] pl-3 py-2.5 bg-primary/5 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">architecture</span>
+<span class="text-[0.875rem]">Blueprints</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 pl-4 py-2.5 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">lan</span>
+<span class="text-[0.875rem]">Infrastructure</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 pl-4 py-2.5 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">security</span>
+<span class="text-[0.875rem]">Security</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 pl-4 py-2.5 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+<span class="text-[0.875rem]">Resources</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 pl-4 py-2.5 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">analytics</span>
+<span class="text-[0.875rem]">Analytics</span>
+</a>
+</nav>
+<div class="px-2 mt-auto">
+<a class="flex items-center gap-3 text-slate-500 pl-4 py-2.5 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="text-[0.875rem]">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 pl-4 py-2.5 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">contact_support</span>
+<span class="text-[0.875rem]">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] mt-16 p-8 min-h-screen bg-surface">
+<!-- Workspace Header -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-slate-500 text-xs mb-3">
+<span>Projects</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary-fixed-dim">Archie Blueprint</span>
+</nav>
+<h1 class="text-4xl font-extrabold font-headline tracking-tighter text-on-surface mb-2">Workspace Overview</h1>
+<p class="text-on-surface-variant max-w-2xl font-light leading-relaxed">Defining the logical orchestration of the Archie AI core engine and peripheral service mesh.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container-high hover:bg-surface-container-highest px-4 py-2 rounded-xl text-sm font-medium transition-colors ghost-border">
+                    Export Specs
+                </button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-5 py-2 rounded-xl text-sm font-semibold shadow-lg shadow-primary/10">
+                    Generate Code
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<!-- Left: Workspace Sub-Navigation -->
+<div class="col-span-12 lg:col-span-2 space-y-1">
+<h3 class="text-[0.65rem] uppercase tracking-[0.2em] text-slate-500 font-bold mb-4 px-3">Blueprint Workspace</h3>
+<a class="flex items-center justify-between px-3 py-2 bg-surface-container-high rounded-lg text-primary text-sm font-medium" href="#">
+                    Overview
+                    <div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg text-sm transition-colors" href="#">Architecture</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg text-sm transition-colors" href="#">Database Schema</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg text-sm transition-colors" href="#">API Endpoints</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg text-sm transition-colors" href="#">Service Mesh</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg text-sm transition-colors" href="#">Deploy Config</a>
+</div>
+<!-- Center/Right: Dashboard Bento Grid -->
+<div class="col-span-12 lg:col-span-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Project Summary (Span 2) -->
+<div class="md:col-span-2 glass-panel ghost-border rounded-full p-8 flex flex-col">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary">auto_awesome</span>
+<span class="text-tertiary text-[0.7rem] uppercase tracking-widest font-bold">AI Insights</span>
+</div>
+<h2 class="text-2xl font-headline font-bold mb-4">Project Purpose &amp; Core Goals</h2>
+<p class="text-on-surface-variant leading-relaxed text-[0.95rem] mb-6">
+                        Archie is architected as a high-throughput semantic analysis engine. The goal is to provide real-time architectural validation using a distributed graph database. It utilizes an event-driven model to ensure low latency between schema ingestion and blueprint generation.
+                    </p>
+<div class="mt-auto flex items-center gap-6 pt-6 border-t border-outline-variant/10">
+<div class="flex flex-col">
+<span class="text-slate-500 text-[0.7rem] uppercase">Primary Objective</span>
+<span class="text-sm font-medium">Architectural Integrity</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-500 text-[0.7rem] uppercase">Target Environment</span>
+<span class="text-sm font-medium">Multi-Cloud Hybrid</span>
+</div>
+</div>
+</div>
+<!-- Stats Panel -->
+<div class="bg-surface-container-low ghost-border rounded-full p-8 flex flex-col gap-6">
+<h3 class="text-sm font-headline font-semibold text-on-surface/80">Project Metrics</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">code</span>
+</div>
+<span class="text-sm text-on-surface-variant">Estimated LoC</span>
+</div>
+<span class="text-xl font-headline font-bold">124.5k</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-lg">hub</span>
+</div>
+<span class="text-sm text-on-surface-variant">Microservices</span>
+</div>
+<span class="text-xl font-headline font-bold">12</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-lg">speed</span>
+</div>
+<span class="text-sm text-on-surface-variant">Complexity Score</span>
+</div>
+<span class="text-xl font-headline font-bold">B+</span>
+</div>
+</div>
+<div class="mt-auto p-4 bg-surface-container-highest/30 rounded-xl border border-outline-variant/10">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[0.7rem] text-slate-500 uppercase">System Health</span>
+<span class="text-[0.7rem] text-primary">98% Optimal</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+</div>
+</div>
+<!-- Tech Stack Snapshot -->
+<div class="md:col-span-2 glass-panel ghost-border rounded-full p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-bold">Infrastructure Stack</h3>
+<button class="text-xs text-primary font-medium hover:underline">Manage Stack</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="p-4 bg-surface-container-high rounded-xl flex flex-col items-center gap-3 group hover:bg-surface-container-highest transition-all border border-transparent hover:border-primary/20">
+<img class="w-10 h-10 rounded-lg" data-alt="React JS logo icon with neon blue styling and glowing atomic structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAvNUZ8LKEY76JFdNq9nWKzzIxmwVuLWv11lq1giXn9DjbcDzcepc4DJ1lK3XU5-pj7zpiuGSWUUn1VOw_cdwvIWdNhMe0qZwFc_zkMnb468G38i9RbA_HPAg3Hq_iln3BWB-79fqkRmP4F8S8eE0ER0w7T0D_SXQYXMl4iL0PeyFXyDqbYC8sIE_dzUyXwz7i9tHABVL_QZ88-3rU_awk95BZ_kzNxQqgZouNsJyjcLMMwJ_-lrXWFekcehkTD-UA-ZPSubwbgPA"/>
+<span class="text-xs font-medium">React Framework</span>
+</div>
+<div class="p-4 bg-surface-container-high rounded-xl flex flex-col items-center gap-3 group hover:bg-surface-container-highest transition-all border border-transparent hover:border-primary/20">
+<img class="w-10 h-10 rounded-lg" data-alt="Node JS logo icon with vibrant green accent and sleek dark container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxwiIXnwhRWb6YFoLJFM8J6DxKYF-d1e1bhhTNtpcYhHjRykW6_4CLWqjP7olXffz_6jOqgl70HPMkE5F8AOg8Il-PLclX2yPJaVsM8SxOC41bV6J7qvclTDHjF3qEiPz-bA6h6pgZNwdCdtYeWylTXNPK1E89y16Z-8gE9GOZ5FzRWwTzHa5xzAZ_WMJmdv9wGDhsYIc426RKvLWSkBt_jkGY_NCXHXIV7-LebsiMRDQUVKwEK--2pXmnF9-fBdUlx9hSjApni7A"/>
+<span class="text-xs font-medium">Node.js Runtime</span>
+</div>
+<div class="p-4 bg-surface-container-high rounded-xl flex flex-col items-center gap-3 group hover:bg-surface-container-highest transition-all border border-transparent hover:border-primary/20">
+<img class="w-10 h-10 rounded-lg" data-alt="PostgreSQL logo icon with deep blue styling and elephant mascot silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbuFn6Ff3arJ_jwr4pROTWv98k1_Om8diW5nV5yWj3-rNnECZCdsiBdUHnxzDSA4nmgxWShmj07BffH7mpnQt1MvXYv1lxTas64ZF-jGQoCNixz0bzeq95gUWLPyEI0WaIIbTXts8BsQbdxJ19syxiEVGfylYJ5ZR8Hl5qE2KdevJwNaTUNwR1cuv8YyEUWmwH1wrnUA1l2RB4memN5_JOsirtCqS1VtsyM690vyIhx0DNu9OEhF_eIiwTn4IaRt2lVPmf7YBaiKs"/>
+<span class="text-xs font-medium">PostgreSQL DB</span>
+</div>
+<div class="p-4 bg-surface-container-high rounded-xl flex flex-col items-center gap-3 group hover:bg-surface-container-highest transition-all border border-transparent hover:border-primary/20">
+<img class="w-10 h-10 rounded-lg" data-alt="AWS logo icon with orange smile brand identity on dark technical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqcRj3eRMSaAhC9K4BoMtl-IpH72Ps7Pa-i6EUvdFebV4QoCuB7PWGyAlcmIBM4zNlDVf3uIxJMv6xUc4yEHnVi0Mn2By2OPsLSBQqYUfInraxOhZYQJLWdhjflqDk4DoUm06z1tXRdcCKExOvwYbOWyUrsXXNEwNjPCBjkJgvZ6zsVQEBnYH0j-K5cMCb2_zU5W5yMpHnIrkWRCAI_tqN6rR06pjvFYtpHAH6f10AF4joORqFpyUP0KqFH9f8ljsqJIwhMd3ngQw"/>
+<span class="text-xs font-medium">AWS Hosting</span>
+</div>
+</div>
+</div>
+<!-- Style Guide Summary -->
+<div class="bg-[#2d3449]/40 border border-outline-variant/10 rounded-full p-8 flex flex-col">
+<h3 class="text-sm font-headline font-semibold mb-4">UI Visual Identity</h3>
+<div class="flex-1 rounded-xl bg-surface-container-lowest/50 p-4 flex flex-col gap-3">
+<div class="flex gap-2">
+<div class="w-8 h-8 rounded-full bg-primary shadow-lg shadow-primary/20"></div>
+<div class="w-8 h-8 rounded-full bg-secondary shadow-lg shadow-secondary/20"></div>
+<div class="w-8 h-8 rounded-full bg-tertiary shadow-lg shadow-tertiary/20"></div>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline/20"></div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="h-2 w-3/4 bg-on-surface/10 rounded-full"></div>
+<div class="h-2 w-1/2 bg-on-surface/10 rounded-full"></div>
+</div>
+<div class="mt-4 py-2 px-3 bg-primary/10 rounded text-[0.65rem] font-bold text-primary tracking-widest uppercase text-center">
+                            High-Tech Editorial
+                        </div>
+</div>
+<button class="mt-6 w-full py-2 text-xs font-medium text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2">
+                        View Full Style Guide
+                        <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<!-- Activity Feed -->
+<div class="md:col-span-3 glass-panel ghost-border rounded-full p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-bold">Blueprint Evolution</h3>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-high rounded-lg text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2.5 h-2.5 bg-primary rounded-full mt-1.5 ring-4 ring-primary/20"></div>
+<div class="w-px h-full bg-outline-variant/20 mt-2"></div>
+</div>
+<div class="pb-2 flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="text-sm font-semibold">Security Schema Refined</span>
+<span class="text-[0.7rem] text-slate-500">2h ago</span>
+</div>
+<p class="text-xs text-on-surface-variant">Archie AI updated the authentication middleware blueprints to include JWT rotation and OAuth2.0 standards.</p>
+</div>
+</div>
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2.5 h-2.5 bg-slate-600 rounded-full mt-1.5"></div>
+<div class="w-px h-full bg-outline-variant/20 mt-2"></div>
+</div>
+<div class="pb-2 flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="text-sm font-semibold">Infrastructure Exported</span>
+<span class="text-[0.7rem] text-slate-500">5h ago</span>
+</div>
+<p class="text-xs text-on-surface-variant">Terraform configurations for the dev environment were successfully generated and exported.</p>
+</div>
+</div>
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2.5 h-2.5 bg-secondary rounded-full mt-1.5 ring-4 ring-secondary/20"></div>
+</div>
+<div class="pb-2 flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="text-sm font-semibold">Blueprint Initialization</span>
+<span class="text-[0.7rem] text-slate-500">Oct 24, 09:12 AM</span>
+</div>
+<p class="text-xs text-on-surface-variant">Initial workspace creation and requirement analysis completed by User: Sarah Chen.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Action (Suppressed on Detail Screen per Rules, but keeping for interaction if needed) -->
+<!-- Suppressed to prioritize Workspace content -->
+</body></html>
