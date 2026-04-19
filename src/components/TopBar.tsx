@@ -1,5 +1,10 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
+
 interface TopBarProps {
   showSearch?: boolean;
   title?: string;
@@ -13,6 +18,17 @@ export default function TopBar({
   versionBadge,
   showActions = false,
 }: TopBarProps) {
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [showNotificationMenu, setShowNotificationMenu] = useState(false);
+  const router = useRouter();
+  const supabase = createClient();
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.push("/auth");
+    router.refresh();
+  };
+
   return (
     <header className="flex justify-between items-center w-full px-8 h-16 bg-slate-950 text-xs uppercase tracking-widest sticky top-0 z-30">
       <div className="flex items-center gap-4 flex-1">
@@ -62,13 +78,67 @@ export default function TopBar({
             </button>
           </div>
         )}
-        <div className="flex items-center gap-4 text-slate-500">
-          <button className="hover:text-indigo-300 transition-all">
-            <span className="material-symbols-outlined">notifications</span>
-          </button>
-          <button className="hover:text-indigo-300 transition-all">
-            <span className="material-symbols-outlined">account_circle</span>
-          </button>
+        <div className="flex items-center gap-4 text-slate-500 relative">
+          <div className="relative">
+            <button 
+              onClick={() => {
+                setShowNotificationMenu(!showNotificationMenu);
+                setShowProfileMenu(false);
+              }}
+              className="hover:text-indigo-300 transition-all flex items-center"
+            >
+              <span className="material-symbols-outlined">notifications</span>
+            </button>
+
+            {showNotificationMenu && (
+              <div className="absolute right-0 mt-2 w-80 bg-surface border border-outline-variant/20 rounded-xl shadow-2xl py-2 z-50 normal-case tracking-normal">
+                <div className="flex items-center justify-between px-4 pb-2 border-b border-outline-variant/20 mb-2">
+                  <h3 className="font-bold text-on-surface">Notifications</h3>
+                  <button 
+                    onClick={() => setShowNotificationMenu(false)}
+                    className="text-xs text-primary hover:text-primary-fixed-dim transition-colors"
+                  >
+                    Mark all as read
+                  </button>
+                </div>
+                <div className="px-4 py-3 text-sm text-on-surface-variant text-center">
+                  You have no new notifications.
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="relative">
+            <button 
+              onClick={() => {
+                setShowProfileMenu(!showProfileMenu);
+                setShowNotificationMenu(false);
+              }}
+              className="hover:text-indigo-300 transition-all flex items-center"
+            >
+              <span className="material-symbols-outlined">account_circle</span>
+            </button>
+            
+            {showProfileMenu && (
+              <div className="absolute right-0 mt-2 w-48 bg-surface border border-outline-variant/20 rounded-xl shadow-2xl py-2 z-50 normal-case tracking-normal">
+                <Link 
+                  href="/settings"
+                  onClick={() => setShowProfileMenu(false)}
+                  className="flex items-center gap-3 px-4 py-2 text-sm text-on-surface hover:bg-surface-container transition-colors w-full"
+                >
+                  <span className="material-symbols-outlined text-lg">settings</span>
+                  Settings
+                </Link>
+                <div className="h-px bg-outline-variant/20 my-1" />
+                <button 
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 px-4 py-2 text-sm text-error hover:bg-error/10 transition-colors w-full text-left"
+                >
+                  <span className="material-symbols-outlined text-lg">logout</span>
+                  Log Out
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>

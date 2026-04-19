@@ -5,8 +5,6 @@ import { usePathname } from "next/navigation";
 
 const settingsNav = [
   { label: "Profile", icon: "account_circle", href: "/settings" },
-  { label: "Architecture", icon: "architecture", href: "/settings/architecture" },
-  { label: "API Metrics", icon: "analytics", href: "/settings/metrics" },
   { label: "Security", icon: "shield", href: "/settings/security" },
   { label: "API Keys", icon: "key", href: "/settings/api-keys" },
   { label: "Help", icon: "help", href: "/settings/help" },

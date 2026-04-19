@@ -15,8 +15,8 @@ export default function LandingPage() {
           <a href="https://github.com" className="text-slate-400 hover:text-indigo-300 transition-colors">GitHub</a>
         </div>
         <div className="flex gap-4 items-center">
-          <Link href="/auth" className="text-slate-400 text-sm hover:text-slate-100 transition-all">Log In</Link>
-          <Link href="/auth" className="gradient-button px-5 py-2 rounded-lg text-on-primary font-semibold text-sm shadow-lg shadow-primary/10">Get Started</Link>
+          <Link href="/auth?tab=login" className="text-slate-400 text-sm hover:text-slate-100 transition-all">Log In</Link>
+          <Link href="/auth?tab=signup" className="gradient-button px-5 py-2 rounded-lg text-on-primary font-semibold text-sm shadow-lg shadow-primary/10">Get Started</Link>
         </div>
       </nav>
 
@@ -39,7 +39,7 @@ export default function LandingPage() {
               Archie is the world&apos;s first AI Product Architect. Translate your vision into detailed PRDs, database schemas, and API documentation with precision.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/auth" className="gradient-button px-8 py-4 rounded-xl text-on-primary font-bold text-lg flex items-center gap-3 group transition-transform hover:scale-[1.02]">
+              <Link href="/auth?tab=signup" className="gradient-button px-8 py-4 rounded-xl text-on-primary font-bold text-lg flex items-center gap-3 group transition-transform hover:scale-[1.02]">
                 Start Building
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
@@ -121,7 +121,7 @@ export default function LandingPage() {
             <h2 className="text-4xl font-extrabold text-on-surface mb-6">Stop guessing. Start building.</h2>
             <p className="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">Join thousands of founders and product managers who use Archie to de-risk their technical roadmaps.</p>
             <div className="flex justify-center">
-              <Link href="/auth" className="gradient-button px-12 py-5 rounded-2xl text-on-primary font-bold text-xl shadow-2xl shadow-primary/20 hover:scale-105 transition-transform">
+              <Link href="/auth?tab=signup" className="gradient-button px-12 py-5 rounded-2xl text-on-primary font-bold text-xl shadow-2xl shadow-primary/20 hover:scale-105 transition-transform">
                 Launch Your First Project
               </Link>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useWizardStore } from "@/stores/wizardStore";
 import { createClient } from "@/lib/supabase/client";
@@ -59,7 +59,10 @@ export default function WizardStep4() {
     }, 3000);
 
     // Create project in Supabase and generate blueprint
+    const hasCreated = useRef(false);
     const createProject = async () => {
+      if (hasCreated.current) return;
+      hasCreated.current = true;
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;

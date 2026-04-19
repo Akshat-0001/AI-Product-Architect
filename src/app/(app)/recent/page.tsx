@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
-export default async function DashboardPage() {
+export default async function RecentProjectsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   const firstName = user?.user_metadata?.full_name?.split(" ")[0] || user?.email?.split("@")[0] || "Architect";
@@ -9,44 +9,23 @@ export default async function DashboardPage() {
   const { data: projects } = await supabase
     .from("projects")
     .select("*")
-    .order("updated_at", { ascending: false });
-
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
+    .eq("user_id", user?.id)
+    .order("updated_at", { ascending: false })
+    .limit(10); // Show top 10 most recent
 
   return (
     <section className="px-10 py-12">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
-          <div>
-            <h2 className="text-4xl font-extrabold text-on-surface tracking-tight mb-2">
-              {greeting}, {firstName}
-            </h2>
-            <p className="text-on-surface-variant text-lg">
-              Architecting the future, one node at a time.
-            </p>
-          </div>
-          {/* Filter Bar */}
-          <div className="flex items-center bg-surface-container-low p-1 rounded-xl">
-            <Link href="/projects" className="px-6 py-2 rounded-lg text-sm font-medium bg-primary text-on-primary shadow-lg shadow-primary/10">All</Link>
-            <Link href="/recent" className="px-6 py-2 rounded-lg text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors">Recent</Link>
-            <Link href="/explore" className="px-6 py-2 rounded-lg text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors">Shared</Link>
-          </div>
+        <div className="mb-12">
+          <h2 className="text-4xl font-extrabold text-on-surface tracking-tight mb-2">
+            Recent Projects
+          </h2>
+          <p className="text-on-surface-variant text-lg">
+            Jump back into your recent workflows.
+          </p>
         </div>
 
-        {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* New Project CTA Card */}
-          <Link href="/new" className="group relative flex flex-col items-center justify-center h-64 rounded-2xl border-2 border-dashed border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-300">
-            <div className="w-16 h-16 rounded-full bg-surface-container-highest group-hover:bg-primary-container flex items-center justify-center transition-all mb-4">
-              <span className="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl">add</span>
-            </div>
-            <span className="text-lg font-semibold text-on-surface">New Project</span>
-            <span className="text-sm text-on-surface-variant mt-1">Start from a clean blueprint</span>
-          </Link>
-
-          {/* Project Cards */}
           {projects?.map((project) => {
             const statusColors: Record<string, string> = {
               in_progress: "bg-primary/10 text-primary",
@@ -95,28 +74,8 @@ export default async function DashboardPage() {
               </Link>
             );
           })}
-
-          {/* AI Insights Card */}
-          <div className="lg:col-span-2 group bg-gradient-to-br from-surface-container-low to-surface-container-highest rounded-2xl p-8 flex items-center justify-between relative overflow-hidden border border-outline-variant/10">
-            <div className="relative z-10 max-w-md">
-              <div className="flex items-center gap-2 text-tertiary mb-3">
-                <span className="material-symbols-outlined text-sm">auto_awesome</span>
-                <span className="text-[10px] font-bold uppercase tracking-widest">AI Insights</span>
-              </div>
-              <h3 className="text-2xl font-bold text-on-surface mb-4 leading-tight">
-                Start a new project to see AI-powered architecture recommendations.
-              </h3>
-
-            </div>
-            <div className="hidden md:block relative w-48 h-48">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-              <span className="material-symbols-outlined text-[120px] text-primary/40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ fontVariationSettings: "'FILL' 1" }}>query_stats</span>
-            </div>
-          </div>
         </div>
       </div>
-
-
     </section>
   );
 }

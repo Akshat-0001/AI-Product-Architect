@@ -12,11 +12,13 @@ const mainNav = [
 
 const bottomNav = [
   { label: "Settings", icon: "settings", href: "/settings" },
-  { label: "Profile", icon: "account_circle", href: "/settings" },
 ];
+
+import { useThemeStore } from "@/stores/themeStore";
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { isDark, toggleTheme } = useThemeStore();
 
   return (
     <aside className="fixed left-0 top-0 h-full flex flex-col z-40 bg-slate-900 w-[240px] text-slate-300">
@@ -94,9 +96,12 @@ export default function Sidebar() {
             <span>{item.label}</span>
           </Link>
         ))}
-        <button className="w-full flex items-center gap-3 py-3 px-4 text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all text-sm">
-          <span className="material-symbols-outlined">dark_mode</span>
-          <span>Theme Toggle</span>
+        <button 
+          onClick={toggleTheme}
+          className="w-full flex items-center gap-3 py-3 px-4 text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all text-sm"
+        >
+          <span className="material-symbols-outlined">{isDark ? 'light_mode' : 'dark_mode'}</span>
+          <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
         </button>
       </div>
     </aside>
