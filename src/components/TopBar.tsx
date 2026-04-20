@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
@@ -20,8 +20,21 @@ export default function TopBar({
 }: TopBarProps) {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showNotificationMenu, setShowNotificationMenu] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const supabase = createClient();
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowProfileMenu(false);
+        setShowNotificationMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -78,7 +91,7 @@ export default function TopBar({
             </button>
           </div>
         )}
-        <div className="flex items-center gap-4 text-slate-500 relative">
+        <div className="flex items-center gap-4 text-slate-500 relative" ref={dropdownRef}>
           <div className="relative">
             <button 
               onClick={() => {
@@ -120,6 +133,14 @@ export default function TopBar({
             
             {showProfileMenu && (
               <div className="absolute right-0 mt-2 w-48 bg-surface border border-outline-variant/20 rounded-xl shadow-2xl py-2 z-50 normal-case tracking-normal">
+                <Link 
+                  href="/settings"
+                  onClick={() => setShowProfileMenu(false)}
+                  className="flex items-center gap-3 px-4 py-2 text-sm text-on-surface hover:bg-surface-container transition-colors w-full"
+                >
+                  <span className="material-symbols-outlined text-lg">person</span>
+                  Profile
+                </Link>
                 <Link 
                   href="/settings"
                   onClick={() => setShowProfileMenu(false)}

@@ -13,12 +13,12 @@ export default function HelpSettingsPage() {
           <p className="text-sm text-on-surface-variant ml-9">Contact our support team directly for assistance.</p>
         </a>
 
-        <a href="https://github.com/archie/docs" target="_blank" rel="noopener noreferrer" className="block p-4 border border-outline-variant/20 rounded-xl hover:bg-surface-container transition-colors group">
+        <a href="https://github.com/Akshat-0001/AI-Product-Architect" target="_blank" rel="noopener noreferrer" className="block p-4 border border-outline-variant/20 rounded-xl hover:bg-surface-container transition-colors group">
           <div className="flex items-center gap-3 mb-2">
             <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">menu_book</span>
             <h3 className="font-bold text-on-surface">Documentation</h3>
           </div>
-          <p className="text-sm text-on-surface-variant ml-9">Read our comprehensive guides and API references.</p>
+          <p className="text-sm text-on-surface-variant ml-9">Read our comprehensive guides and API references on GitHub.</p>
         </a>
       </div>
     </div>
