@@ -1,12 +1,12 @@
 # Graph Report - C:\Users\comak\OneDrive\Desktop\AI Product Architect V2  (2026-04-21)
 
 ## Corpus Check
-- 53 files · ~234,373 words
+- 60 files · ~247,972 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 117 nodes · 98 edges · 37 communities detected
-- Extraction: 77% EXTRACTED · 23% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.8)
+- 132 nodes · 112 edges · 41 communities detected
+- Extraction: 78% EXTRACTED · 22% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -47,18 +47,22 @@
 - [[_COMMUNITY_Community 34|Community 34]]
 - [[_COMMUNITY_Community 35|Community 35]]
 - [[_COMMUNITY_Community 36|Community 36]]
+- [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 38|Community 38]]
+- [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_Community 40|Community 40]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `createClient()` - 12 edges
-2. `POST()` - 9 edges
-3. `getKey()` - 4 edges
-4. `docx_to_markdown()` - 3 edges
-5. `handleValidateGroq()` - 3 edges
-6. `handleValidateGemini()` - 3 edges
-7. `generateWithGroq()` - 3 edges
-8. `generateWithGemini()` - 3 edges
-9. `GET()` - 3 edges
-10. `handleSync()` - 3 edges
+2. `POST()` - 10 edges
+3. `getKey()` - 5 edges
+4. `generateWithGroq()` - 4 edges
+5. `generateWithGemini()` - 4 edges
+6. `getActiveProvider()` - 4 edges
+7. `docx_to_markdown()` - 3 edges
+8. `handleValidateGroq()` - 3 edges
+9. `handleValidateGemini()` - 3 edges
+10. `GET()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `DashboardPage()` --calls--> `createClient()`  [INFERRED]
@@ -83,12 +87,12 @@ Cohesion: 0.18
 Nodes (9): hasAnyKey(), removeKey(), saveKey(), validateGeminiKey(), validateGroqKey(), handleClearGemini(), handleClearGroq(), handleValidateGemini() (+1 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.29
-Nodes (6): generateWithGemini(), generateWithGroq(), GET(), POST(), syncWithGemini(), syncWithGroq()
+Cohesion: 0.19
+Nodes (6): getActiveProvider(), getKey(), handleAudit(), handleSync(), fetchVision(), handleNext()
 
 ### Community 3 - "Community 3"
-Cohesion: 0.32
-Nodes (4): getActiveProvider(), getKey(), handleAudit(), handleSync()
+Cohesion: 0.29
+Nodes (6): generateWithGemini(), generateWithGroq(), GET(), POST(), syncWithGemini(), syncWithGroq()
 
 ### Community 4 - "Community 4"
 Cohesion: 0.67
@@ -100,18 +104,18 @@ Nodes (0):
 
 ### Community 6 - "Community 6"
 Cohesion: 0.5
-Nodes (2): updateSession(), proxy()
+Nodes (0): 
 
 ### Community 7 - "Community 7"
-Cohesion: 0.67
-Nodes (0): 
+Cohesion: 0.5
+Nodes (2): updateSession(), proxy()
 
 ### Community 8 - "Community 8"
 Cohesion: 0.67
 Nodes (0): 
 
 ### Community 9 - "Community 9"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 10 - "Community 10"
@@ -222,52 +226,66 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 37 - "Community 37"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 38 - "Community 38"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 39 - "Community 39"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 40 - "Community 40"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
 - **1 isolated node(s):** `Convert a DOCX file to Markdown format.`
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 9`** (2 nodes): `test-gen.js`, `main()`
+- **Thin community `Community 10`** (2 nodes): `test-gen.js`, `main()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 10`** (2 nodes): `layout.tsx`, `RootLayout()`
+- **Thin community `Community 11`** (2 nodes): `layout.tsx`, `RootLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 11`** (2 nodes): `layout.tsx`, `AppLayout()`
+- **Thin community `Community 12`** (2 nodes): `layout.tsx`, `AppLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 12`** (2 nodes): `layout.tsx`, `ProjectLayout()`
+- **Thin community `Community 13`** (2 nodes): `layout.tsx`, `ProjectLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 13`** (2 nodes): `page.tsx`, `renderTree()`
+- **Thin community `Community 14`** (2 nodes): `page.tsx`, `renderTree()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 14`** (2 nodes): `layout.tsx`, `SettingsLayout()`
+- **Thin community `Community 15`** (2 nodes): `layout.tsx`, `SettingsLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 15`** (2 nodes): `page.tsx`, `HelpSettingsPage()`
+- **Thin community `Community 16`** (2 nodes): `page.tsx`, `HelpSettingsPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 16`** (2 nodes): `page.tsx`, `handleChangePassword()`
+- **Thin community `Community 17`** (2 nodes): `page.tsx`, `handleChangePassword()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (2 nodes): `layout.tsx`, `WizardLayout()`
+- **Thin community `Community 18`** (2 nodes): `layout.tsx`, `WizardLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `page.tsx`, `WizardStep2()`
+- **Thin community `Community 19`** (2 nodes): `page.tsx`, `WizardStep2()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `page.tsx`, `handleContinue()`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `ArchitectureCanvas()`, `ArchitectureCanvas.tsx`
+- **Thin community `Community 20`** (2 nodes): `page.tsx`, `handleContinue()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 21`** (2 nodes): `MarkdownViewer.tsx`, `MarkdownViewer()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (2 nodes): `Sidebar.tsx`, `Sidebar()`
+- **Thin community `Community 22`** (2 nodes): `NodeDetailsSidebar.tsx`, `NodeDetailsSidebar()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (2 nodes): `client.ts`, `createClient()`
+- **Thin community `Community 23`** (2 nodes): `Sidebar.tsx`, `Sidebar()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (1 nodes): `eslint.config.mjs`
+- **Thin community `Community 24`** (2 nodes): `TableDetailsSidebar.tsx`, `TableDetailsSidebar()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 25`** (2 nodes): `TableNode.tsx`, `TableIcon()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 26`** (1 nodes): `next.config.ts`
+- **Thin community `Community 26`** (2 nodes): `client.ts`, `createClient()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 27`** (1 nodes): `eslint.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (1 nodes): `page.tsx`
+- **Thin community `Community 28`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (1 nodes): `page.tsx`
+- **Thin community `Community 29`** (1 nodes): `next.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (1 nodes): `page.tsx`
+- **Thin community `Community 30`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 31`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -277,24 +295,30 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 34`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (1 nodes): `themeStore.ts`
+- **Thin community `Community 35`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (1 nodes): `wizardStore.ts`
+- **Thin community `Community 36`** (1 nodes): `page.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 37`** (1 nodes): `page.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 38`** (1 nodes): `ArchitectureNode.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 39`** (1 nodes): `themeStore.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 40`** (1 nodes): `wizardStore.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `createClient()` connect `Community 0` to `Community 2`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
-- **Why does `GET()` connect `Community 2` to `Community 0`?**
-  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **Why does `createClient()` connect `Community 0` to `Community 3`?**
+  _High betweenness centrality (0.053) - this node is a cross-community bridge._
+- **Why does `GET()` connect `Community 3` to `Community 0`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Are the 11 inferred relationships involving `createClient()` (e.g. with `DashboardPage()` and `ArchitecturePage()`) actually correct?**
   _`createClient()` has 11 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `getKey()` (e.g. with `handleSync()` and `handleAudit()`) actually correct?**
-  _`getKey()` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `handleValidateGroq()` (e.g. with `validateGroqKey()` and `saveKey()`) actually correct?**
-  _`handleValidateGroq()` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 3 inferred relationships involving `getKey()` (e.g. with `fetchVision()` and `handleSync()`) actually correct?**
+  _`getKey()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Convert a DOCX file to Markdown format.` to the rest of the system?**
   _1 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
