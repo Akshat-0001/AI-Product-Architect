@@ -1,0 +1,282 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+#ae{width:100%;background:#0b1326;border-radius:10px;overflow:hidden;font-family:Inter,-apple-system,sans-serif;user-select:none}
+.tb{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#131b2e;border-bottom:1px solid #2d3449;flex-wrap:wrap}
+.tbl{font-size:10px;color:#918fa1;text-transform:uppercase;letter-spacing:.08em;flex-shrink:0}
+.tnb{display:flex;align-items:center;gap:4px;padding:4px 9px;border-radius:5px;border:1px solid;background:transparent;font-size:11px;cursor:pointer;font-family:inherit;transition:filter .12s}
+.tnb:hover{filter:brightness(1.3)}
+.sp{width:1px;height:18px;background:#2d3449}
+.ab{padding:4px 9px;border-radius:5px;border:1px solid #464555;background:transparent;color:#c7c4d8;font-size:11px;cursor:pointer;font-family:inherit}
+.ab:hover{background:#2d3449}.ab.dng{border-color:#7f1d1d;color:#f87171}.ab.dng:hover{background:#1c0a0a}
+.ma{display:flex;height:500px}
+#cw{flex:1;overflow:hidden;position:relative}
+#cv{width:100%;height:100%;display:block}
+.port{cursor:crosshair;opacity:0;transition:opacity .1s}
+.ng:hover .port{opacity:1}
+.port:hover{opacity:1!important}
+#pp{width:192px;background:#131b2e;border-left:1px solid #2d3449;padding:11px;display:none;flex-direction:column;gap:9px;overflow-y:auto}
+.pl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#918fa1;margin-bottom:3px}
+.pi{width:100%;background:#0b1326;border:1px solid #464555;border-radius:5px;padding:5px 7px;color:#dae2fd;font-size:12px;font-family:inherit}
+.pi:focus{outline:none;border-color:#adc6ff}
+.ps{width:100%;background:#0b1326;border:1px solid #464555;border-radius:5px;padding:5px 7px;color:#dae2fd;font-size:12px;font-family:inherit;cursor:pointer}
+.ps:focus{outline:none;border-color:#adc6ff}
+.ph{font-size:10px;color:#464555;text-align:center;margin-top:auto;padding-top:8px;border-top:1px solid #2d3449;line-height:1.5}
+.sb{padding:5px 12px;background:#060e20;border-top:1px solid #1a2030;font-size:10px;color:#464555;display:flex;gap:14px}
+</style>
+
+<div id="ae">
+<div class="tb">
+  <span class="tbl">Add Node</span>
+  <button class="tnb" onclick="addNode('fe')"    style="color:#ADC6FF;border-color:#1e3a6f;background:#0a1a35">⬡ Frontend</button>
+  <button class="tnb" onclick="addNode('gw')"    style="color:#C4B5FD;border-color:#3d1b69;background:#160d35">⬡ Gateway</button>
+  <button class="tnb" onclick="addNode('svc')"   style="color:#5EEAD4;border-color:#0f4535;background:#051c18">⬡ Service</button>
+  <button class="tnb" onclick="addNode('db')"    style="color:#FFB695;border-color:#4d2a0a;background:#1a0d05">⬡ Database</button>
+  <button class="tnb" onclick="addNode('cache')" style="color:#F9A8D4;border-color:#4d0a30;background:#1a0514">⬡ Cache</button>
+  <button class="tnb" onclick="addNode('queue')" style="color:#86EFAC;border-color:#0f3d15;background:#051c0a">⬡ Queue</button>
+  <button class="tnb" onclick="addNode('ext')"   style="color:#FCD34D;border-color:#4d3a0a;background:#1a1205">⬡ External</button>
+  <div class="sp"></div>
+  <button class="ab" onclick="deleteSelected()">⌫ Delete</button>
+  <button class="ab dng" onclick="clearAll()">Clear</button>
+</div>
+<div class="ma">
+  <div id="cw">
+    <svg id="cv" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r=".8" fill="#1e2840"/>
+        </pattern>
+        <marker id="aGray" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+          <polygon points="0 0,8 3,0 6" fill="#464555"/>
+        </marker>
+        <marker id="aBlue" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+          <polygon points="0 0,8 3,0 6" fill="#ADC6FF"/>
+        </marker>
+      </defs>
+      <rect id="bg" width="100%" height="100%" fill="url(#dots)"/>
+      <g id="el"></g>
+      <g id="tl"></g>
+      <g id="nl"></g>
+    </svg>
+  </div>
+  <div id="pp">
+    <div style="font-size:11px;font-weight:500;color:#adc6ff;border-bottom:1px solid #2d3449;padding-bottom:8px">Node Properties</div>
+    <div><div class="pl">Label</div><input class="pi" id="plbl" oninput="upd('label',this.value)"></div>
+    <div><div class="pl">Type</div>
+    <select class="ps" id="ptyp" onchange="upd('type',this.value)">
+      <option value="fe">Frontend</option><option value="gw">Gateway</option>
+      <option value="svc">Service</option><option value="db">Database</option>
+      <option value="cache">Cache</option><option value="queue">Queue</option>
+      <option value="ext">External</option>
+    </select></div>
+    <div><div class="pl">Description</div><textarea class="pi" id="pdesc" rows="3" oninput="upd('desc',this.value)" style="resize:vertical"></textarea></div>
+    <div><div class="pl">Tag / Version</div><input class="pi" id="ptag" placeholder="v1.0.0" oninput="upd('tag',this.value)"></div>
+    <div class="ph">Double-click node to focus label<br>Drag yellow ports to connect<br>Delete key removes selected</div>
+  </div>
+</div>
+<div class="sb">
+  <span id="sn">0 nodes</span>
+  <span id="se">0 edges</span>
+  <span style="margin-left:auto;color:#2d3449">Click node to select • Drag to move • Drag ports to connect • Delete to remove</span>
+</div>
+</div>
+
+<script>
+const NT={
+  fe:   {n:'FRONTEND', c:'#0a1a38',b:'#ADC6FF',t:'#ADC6FF',s:'#3a6aa0'},
+  gw:   {n:'GATEWAY',  c:'#160d38',b:'#C4B5FD',t:'#C4B5FD',s:'#6a50b0'},
+  svc:  {n:'SERVICE',  c:'#051c18',b:'#5EEAD4',t:'#5EEAD4',s:'#2a8070'},
+  db:   {n:'DATABASE', c:'#1a0d05',b:'#FFB695',t:'#FFB695',s:'#905530'},
+  cache:{n:'CACHE',    c:'#1a0514',b:'#F9A8D4',t:'#F9A8D4',s:'#8a3070'},
+  queue:{n:'QUEUE',    c:'#051c0a',b:'#86EFAC',t:'#86EFAC',s:'#3a7a50'},
+  ext:  {n:'EXTERNAL', c:'#1a1205',b:'#FCD34D',t:'#FCD34D',s:'#907020'},
+};
+const NW=160,NH=68,PR=5;
+let st={nodes:[],edges:[],sel:null,drag:null,conn:null,nc:0,ec:0};
+const cv=document.getElementById('cv');
+const el=document.getElementById('el');
+const nl=document.getElementById('nl');
+const tl=document.getElementById('tl');
+
+function gp(e){const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+function portXY(node,pt){
+  if(pt==='l') return{x:node.x-NW/2,y:node.y};
+  if(pt==='r') return{x:node.x+NW/2,y:node.y};
+  if(pt==='t') return{x:node.x,y:node.y-NH/2};
+  return{x:node.x,y:node.y+NH/2};
+}
+
+function addNode(type){
+  const r=cv.getBoundingClientRect();
+  const x=r.width/2+(Math.random()-.5)*150, y=r.height/2+(Math.random()-.5)*100;
+  const id='n'+(++st.nc);
+  st.nodes.push({id,type,x,y,label:NT[type].n[0]+NT[type].n.slice(1).toLowerCase()+' '+st.nc,desc:'',tag:'v1.0.0'});
+  render(); doSel(id,'node');
+}
+
+function deleteSelected(){
+  if(!st.sel) return;
+  if(st.sel.t==='node'){
+    st.nodes=st.nodes.filter(n=>n.id!==st.sel.id);
+    st.edges=st.edges.filter(e=>e.src!==st.sel.id&&e.tgt!==st.sel.id);
+  } else {
+    st.edges=st.edges.filter(e=>e.id!==st.sel.id);
+  }
+  st.sel=null; render(); updPanel();
+}
+
+function clearAll(){st.nodes=[];st.edges=[];st.sel=null;render();updPanel();}
+
+function doSel(id,type){st.sel={t:type,id};render();updPanel();}
+
+function upd(key,val){
+  if(!st.sel||st.sel.t!=='node') return;
+  const n=st.nodes.find(n=>n.id===st.sel.id);
+  if(n){n[key]=val;if(key!=='desc')render();}
+}
+
+function updPanel(){
+  const pp=document.getElementById('pp');
+  if(!st.sel||st.sel.t!=='node'){pp.style.display='none';return;}
+  const n=st.nodes.find(n=>n.id===st.sel.id);
+  if(!n){pp.style.display='none';return;}
+  pp.style.display='flex';
+  document.getElementById('plbl').value=n.label;
+  document.getElementById('ptyp').value=n.type;
+  document.getElementById('pdesc').value=n.desc||'';
+  document.getElementById('ptag').value=n.tag||'v1.0.0';
+}
+
+function rEdge(e){
+  const s=st.nodes.find(n=>n.id===e.src), t=st.nodes.find(n=>n.id===e.tgt);
+  if(!s||!t) return '';
+  const sp=portXY(s,e.sp||'r'), tp=portXY(t,e.tp||'l');
+  const cx=(tp.x-sp.x)*.5;
+  const d=`M${sp.x} ${sp.y}C${sp.x+cx} ${sp.y} ${tp.x-cx} ${tp.y} ${tp.x} ${tp.y}`;
+  const isSel=st.sel?.t==='edge'&&st.sel?.id===e.id;
+  const stroke=isSel?'#ADC6FF':'#3a4560';
+  const marker=isSel?'url(#aBlue)':'url(#aGray)';
+  return`<g><path data-eid="${e.id}" d="${d}" stroke="transparent" stroke-width="14" fill="none" style="cursor:pointer"/>
+<path d="${d}" stroke="${stroke}" stroke-width="${isSel?2:1.5}" fill="none" marker-end="${marker}" stroke-dasharray="${isSel?'':'6 3'}" pointer-events="none"/></g>`;
+}
+
+function rNode(n){
+  const t=NT[n.type]||NT.svc;
+  const isSel=st.sel?.t==='node'&&st.sel?.id===n.id;
+  const x=n.x-NW/2, y=n.y-NH/2;
+  const lbl=n.label.length>17?n.label.slice(0,15)+'…':n.label;
+  const tag=(n.tag||'v1.0.0').slice(0,12);
+  return`<g class="ng" data-nid="${n.id}">
+${isSel?`<rect x="${x-3}" y="${y-3}" width="${NW+6}" height="${NH+6}" rx="11" fill="none" stroke="${t.b}" stroke-width="1.5" opacity=".35" pointer-events="none"/>
+<rect x="${x-6}" y="${y-6}" width="${NW+12}" height="${NH+12}" rx="14" fill="${t.b}" opacity=".04" pointer-events="none"/>`:''}
+<rect data-nid="${n.id}" data-body="1" x="${x}" y="${y}" width="${NW}" height="${NH}" rx="8" fill="${t.c}" stroke="${t.b}" stroke-width="${isSel?2:1}" style="cursor:move"/>
+<text x="${n.x}" y="${y+14}" text-anchor="middle" font-size="8" fill="${t.s}" font-family="Inter,sans-serif" font-weight="600" letter-spacing="1.2" pointer-events="none">${t.n}</text>
+<rect x="${x+12}" y="${y+18}" width="${NW-24}" height="1" fill="${t.b}" opacity=".15" pointer-events="none"/>
+<text x="${n.x}" y="${n.y+4}" text-anchor="middle" font-size="12" fill="${t.t}" font-family="Inter,sans-serif" font-weight="600" pointer-events="none">${lbl}</text>
+<text x="${n.x}" y="${y+NH-8}" text-anchor="middle" font-size="9" fill="${t.s}" font-family="Inter,sans-serif" pointer-events="none">${tag}</text>
+${['l','r','t','b'].map(pt=>{const p=portXY(n,pt);return`<circle class="port" data-nid="${n.id}" data-pt="${pt}" cx="${p.x}" cy="${p.y}" r="${PR}" fill="${t.b}" stroke="#0b1326" stroke-width="2"/>`;}).join('')}
+</g>`;
+}
+
+function render(){
+  el.innerHTML=st.edges.map(rEdge).join('');
+  nl.innerHTML=st.nodes.map(rNode).join('');
+  document.getElementById('sn').textContent=st.nodes.length+' nodes';
+  document.getElementById('se').textContent=st.edges.length+' edges';
+  el.querySelectorAll('[data-eid]').forEach(e=>e.addEventListener('mousedown',ev=>{ev.stopPropagation();doSel(e.dataset.eid,'edge');}));
+}
+
+cv.addEventListener('mousedown',e=>{
+  const pos=gp(e);
+  if(e.target.dataset.pt){
+    st.conn={nid:e.target.dataset.nid,pt:e.target.dataset.pt};
+    return;
+  }
+  if(e.target.dataset.body&&e.target.dataset.nid){
+    const n=st.nodes.find(n=>n.id===e.target.dataset.nid);
+    if(n){st.drag={nid:n.id,ox:pos.x-n.x,oy:pos.y-n.y};doSel(n.id,'node');}
+    return;
+  }
+  if(e.target.id==='bg'||e.target===cv){
+    st.sel=null;render();updPanel();
+  }
+});
+
+cv.addEventListener('mousemove',e=>{
+  const pos=gp(e);
+  if(st.drag){
+    const n=st.nodes.find(n=>n.id===st.drag.nid);
+    if(n){n.x=pos.x-st.drag.ox;n.y=pos.y-st.drag.oy;render();}
+  }
+  if(st.conn){
+    const src=st.nodes.find(n=>n.id===st.conn.nid);
+    if(!src) return;
+    const sp=portXY(src,st.conn.pt);
+    const cx=(pos.x-sp.x)*.5;
+    const d=`M${sp.x} ${sp.y}C${sp.x+cx} ${sp.y} ${pos.x-cx} ${pos.y} ${pos.x} ${pos.y}`;
+    tl.innerHTML=`<path d="${d}" stroke="#ADC6FF" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity=".75"/>
+<circle cx="${pos.x}" cy="${pos.y}" r="4" fill="#ADC6FF" opacity=".75"/>`;
+  }
+});
+
+cv.addEventListener('mouseup',e=>{
+  if(st.conn){
+    let tnid=null,tpt=null;
+    if(e.target.dataset.pt&&e.target.dataset.nid!==st.conn.nid){
+      tnid=e.target.dataset.nid; tpt=e.target.dataset.pt;
+    } else {
+      const pos=gp(e); let bd=32;
+      st.nodes.forEach(n=>{
+        if(n.id===st.conn.nid) return;
+        ['l','r','t','b'].forEach(pt=>{
+          const p=portXY(n,pt), d=Math.hypot(pos.x-p.x,pos.y-p.y);
+          if(d<bd){bd=d;tnid=n.id;tpt=pt;}
+        });
+      });
+    }
+    if(tnid){
+      const dup=st.edges.find(e=>e.src===st.conn.nid&&e.tgt===tnid);
+      if(!dup) st.edges.push({id:'e'+(++st.ec),src:st.conn.nid,sp:st.conn.pt,tgt:tnid,tp:tpt||'l'});
+    }
+    st.conn=null; tl.innerHTML=''; render();
+  }
+  st.drag=null;
+});
+
+cv.addEventListener('dblclick',e=>{
+  let t=e.target, nid=null;
+  while(t&&t!==cv){if(t.dataset&&t.dataset.nid){nid=t.dataset.nid;break;}t=t.parentElement;}
+  if(!nid) return;
+  doSel(nid,'node');
+  setTimeout(()=>{document.getElementById('plbl').focus();document.getElementById('plbl').select();},40);
+});
+
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+  if(e.key==='Delete'||e.key==='Backspace') deleteSelected();
+  if(e.key==='Escape'){st.sel=null;st.conn=null;st.drag=null;tl.innerHTML='';render();updPanel();}
+});
+
+setTimeout(()=>{
+  const r=cv.getBoundingClientRect(), cx=r.width/2, cy=r.height/2;
+  st.nodes=[
+    {id:'n1',type:'fe',  x:cx-220,y:cy-50, label:'Next.js Client',  desc:'Web frontend',tag:'v2.4.0'},
+    {id:'n2',type:'gw',  x:cx,    y:cy-50, label:'API Gateway',     desc:'Request routing',tag:'v1.2.0'},
+    {id:'n3',type:'svc', x:cx+220,y:cy-110,label:'Auth Service',    desc:'JWT + OAuth2',tag:'v1.0.0'},
+    {id:'n4',type:'svc', x:cx+220,y:cy,    label:'Blueprint Gen',   desc:'AI generation',tag:'v2.0.0'},
+    {id:'n5',type:'db',  x:cx+220,y:cy+110,label:'PostgreSQL',      desc:'Main DB',tag:'Supabase'},
+    {id:'n6',type:'cache',x:cx,   y:cy+110,label:'Redis Cache',     desc:'Session store',tag:'v7.0'},
+    {id:'n7',type:'ext', x:cx-220,y:cy+110,label:'Groq API',        desc:'AI provider',tag:'BYOK'},
+  ];
+  st.nc=7;
+  st.edges=[
+    {id:'e1',src:'n1',sp:'r',tgt:'n2',tp:'l'},
+    {id:'e2',src:'n2',sp:'r',tgt:'n3',tp:'l'},
+    {id:'e3',src:'n2',sp:'r',tgt:'n4',tp:'l'},
+    {id:'e4',src:'n4',sp:'b',tgt:'n5',tp:'t'},
+    {id:'e5',src:'n2',sp:'b',tgt:'n6',tp:'t'},
+    {id:'e6',src:'n4',sp:'l',tgt:'n7',tp:'t'},
+  ];
+  st.ec=6; render();
+},120);
+</script>

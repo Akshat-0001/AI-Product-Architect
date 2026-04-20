@@ -24,6 +24,8 @@ export default function WizardStep4() {
   const [statusText, setStatusText] = useState("Initializing synthesis...");
   const router = useRouter();
 
+  const hasCreated = useRef(false);
+
   useEffect(() => {
     const provider = getActiveProvider();
     const key = getKey(provider);
@@ -58,8 +60,6 @@ export default function WizardStep4() {
       setStatusText(statuses[si]);
     }, 3000);
 
-    // Create project in Supabase and generate blueprint
-    const hasCreated = useRef(false);
     const createProject = async () => {
       if (hasCreated.current) return;
       hasCreated.current = true;
@@ -99,6 +99,7 @@ export default function WizardStep4() {
                 answers,
                 style: selectedStyle,
                 provider,
+                vision: useWizardStore.getState().vision,
                 projectId: project.id,
               }),
             });

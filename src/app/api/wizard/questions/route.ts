@@ -2,34 +2,37 @@ import { NextResponse } from "next/server";
 import Groq from "groq-sdk";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const SYSTEM_PROMPT = `You are Archie, an expert AI Systems Architect. The user is providing a high-level product idea for a software application.
-Your job is to generate exactly 5 highly specific, technical system-design questions that will help clarify the backend architecture, scalability, security, or data modeling choices.
-These MUST NOT BE generic questions like "who is the target audience". They must be highly contextual to their specific idea.
+const SYSTEM_PROMPT = `You are Archie, a friendly and expert AI Systems Architect. The user is providing a product idea for their project.
+Your job is to generate exactly 5 specific, moderate-level technical questions that will help them think about their system design.
+
+REQUIREMENTS:
+- MODERATE TECHNICALITY: Avoid highly academic jargon (e.g., instead of "eventual consistency," use "how fast should data update").
+- ACCESSIBLE LANGUAGE: Use terms a student can understand, but keep it professional.
+- CONTEXTUAL: Base the questions on their specific idea. 
+- FORMAT: Generate 5 questions with 4 clear, descriptive options each.
 
 Return a valid JSON object matching this exact structure:
 {
   "questions": [
     {
-      "id": "short_unique_key",
-      "question": "The actual technical question text",
-      "insight": "A brief 1-sentence insight explaining WHY this structural decision matters.",
+      "id": "key",
+      "question": "Standard/Moderate technical question",
+      "insight": "Explain WHY this matters in simple terms.",
       "options": [
-        { "icon": "lock", "title": "Short Option Name", "subtitle": "Brief implication detail" },
-        { "icon": "speed", "title": "Short Option Name", "subtitle": "Brief implication detail" },
-        { "icon": "database", "title": "...", "subtitle": "..." },
-        { "icon": "api", "title": "...", "subtitle": "..." }
+        { "icon": "material_icon", "title": "Simple Title", "subtitle": "Friendly explanation of the choice" }
       ]
     }
   ]
 }`;
 
-async function generateWithGroq(key: string, idea: string) {
+async function generateWithGroq(key: string, idea: string, vision: any) {
   const groq = new Groq({ apiKey: key });
+  const visionContext = vision ? `\nSystem Vision: ${vision.title} - ${vision.summary}` : "";
   const response = await groq.chat.completions.create({
     model: "llama-3.3-70b-versatile",
     messages: [
       { role: "system", content: SYSTEM_PROMPT },
-      { role: "user", content: `Product Idea: ${idea}\n\nGenerate the 5 technical design questions now.` },
+      { role: "user", content: `Product Idea: ${idea}${visionContext}\n\nGenerate the 5 technical design questions now.` },
     ],
     temperature: 0.7,
     max_tokens: 3000,
@@ -46,8 +49,9 @@ async function generateWithGroq(key: string, idea: string) {
   }
 }
 
-async function generateWithGemini(key: string, idea: string) {
+async function generateWithGemini(key: string, idea: string, vision: any) {
   const genAI = new GoogleGenerativeAI(key);
+  const visionContext = vision ? `\nSystem Vision: ${vision.title} - ${vision.summary}` : "";
   const model = genAI.getGenerativeModel({
     model: "gemini-2.0-flash",
     generationConfig: {
@@ -56,7 +60,7 @@ async function generateWithGemini(key: string, idea: string) {
     },
   });
 
-  const prompt = `${SYSTEM_PROMPT}\n\nProduct Idea: ${idea}\n\nGenerate the 5 technical design questions now.`;
+  const prompt = `${SYSTEM_PROMPT}\n\nProduct Idea: ${idea}${visionContext}\n\nGenerate the 5 technical design questions now.`;
   const result = await model.generateContent(prompt);
   const content = JSON.parse(result.response.text());
   return Array.isArray(content) ? content : (content.questions || content);
@@ -64,7 +68,7 @@ async function generateWithGemini(key: string, idea: string) {
 
 export async function POST(req: Request) {
   try {
-    const { idea, provider } = await req.json();
+    const { idea, vision, provider } = await req.json();
     const key = req.headers.get("X-AI-Key");
 
     if (!key) {
@@ -75,9 +79,9 @@ export async function POST(req: Request) {
 
     try {
       if (provider === "gemini") {
-        questions = await generateWithGemini(key, idea);
+        questions = await generateWithGemini(key, idea, vision);
       } else {
-        questions = await generateWithGroq(key, idea);
+        questions = await generateWithGroq(key, idea, vision);
       }
     } catch (primaryError) {
       console.error("Questions generation failed:", primaryError);

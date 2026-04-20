@@ -45,7 +45,7 @@ export default function ProjectLayout({
             Blueprint
           </span>
         </div>
-        <div className="space-y-0.5 flex-1">
+        <div className="space-y-0.5 flex-1 overflow-y-auto min-h-0 pr-2 custom-scrollbar">
           {blueprintNav.map((item) => {
             const fullHref = `/project/${projectId}${item.href}`;
             const isActive = pathname === fullHref;
@@ -71,7 +71,7 @@ export default function ProjectLayout({
           })}
         </div>
         
-        <div className="mt-auto pt-4 border-t border-outline-variant/10">
+        <div className="pt-4 border-t border-outline-variant/10">
           <ExportButton projectId={projectId} projectName={projectName} />
         </div>
       </nav>

@@ -97,7 +97,7 @@ export default function WizardStep2() {
       const res = await fetch("/api/wizard/questions", {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-AI-Key": key },
-        body: JSON.stringify({ idea: ideaText, provider }),
+        body: JSON.stringify({ idea: ideaText, vision: useWizardStore.getState().vision, provider }),
       });
       if (res.ok) {
         const data = await res.json();

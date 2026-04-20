@@ -5,32 +5,46 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+const defaultSummary = "This project uses a modern headless architecture where a Next.js frontend communicates with a Go-based API Gateway. Data persists in a PostgreSQL database, while Redis provides a high-speed caching layer for performance.";
+
 const defaultNodes = [
-  { id: "fe", position: { x: 250, y: 50 }, data: { label: "Frontend (Next.js)", type: "frontend", description: "UI Codebase" } },
-  { id: "api", position: { x: 250, y: 200 }, data: { label: "API Gateway", type: "backend", description: "Main routing handler" } },
-  { id: "db", position: { x: 100, y: 400 }, data: { label: "PostgreSQL", type: "database", description: "Primary Data" } },
-  { id: "auth", position: { x: 400, y: 400 }, data: { label: "Auth Provider", type: "external", description: "Supabase Auth" } },
+  { id: "dns", type: "architecture", position: { x: 50, y: 150 }, data: { label: "Cloudflare DNS", type: "dns", tech: "DNS", description: "Global traffic routing." } },
+  { id: "firewall", type: "architecture", position: { x: 150, y: 150 }, data: { label: "WAF / Firewall", type: "firewall", tech: "WAF", description: "Security filter." } },
+  { id: "gateway", type: "architecture", position: { x: 300, y: 150 }, data: { label: "API Gateway", type: "gateway", tech: "Caddy", description: "Request routing." } },
+  { id: "web", type: "architecture", position: { x: 300, y: 0 }, data: { label: "Web Portal", type: "web", tech: "Next.js", description: "User frontend." } },
+  { id: "server", type: "architecture", position: { x: 500, y: 150 }, data: { label: "Core API", type: "server", tech: "Golang", description: "Business logic." } },
+  { id: "db", type: "architecture", position: { x: 700, y: 150 }, data: { label: "PostgreSQL", type: "database", tech: "Supabase", description: "Primary storage." } },
+  { id: "cache", type: "architecture", position: { x: 700, y: 0 }, data: { label: "Redis Cache", type: "cache", tech: "Redis", description: "Fast read layer." } },
 ];
 
 const defaultEdges = [
-  { id: "e-fe-api", source: "fe", target: "api", label: "REST", animated: true },
-  { id: "e-api-db", source: "api", target: "db", label: "pg module" },
-  { id: "e-api-auth", source: "api", target: "auth", label: "verify JWT" },
+  { id: "e1", source: "dns", target: "firewall", label: "UDP/53" },
+  { id: "e2", source: "firewall", target: "gateway", label: "HTTPS" },
+  { id: "e3", source: "web", target: "gateway", label: "REST" },
+  { id: "e4", source: "gateway", target: "server", label: "gRPC" },
+  { id: "e5", source: "server", target: "db", label: "TCP/5432" },
+  { id: "e6", source: "db", target: "cache", label: "Internal" },
 ];
 
 export default async function ArchitecturePage({ params }: Props) {
   const { id } = await params;
   const supabase = await createClient();
 
+  const { data: project } = await supabase
+    .from("projects")
+    .select("title")
+    .eq("id", id)
+    .single();
+
+  const projectTitle = project?.title || "Architecture Matrix";
+
   const { data: sections } = await supabase
     .from("blueprint_sections")
     .select("*")
     .eq("project_id", id);
 
-  const arch = sections?.find((s) => s.section_type === "architecture")?.content as Record<string, unknown> | undefined;
+  const arch = sections?.find((s) => s.section_type === "architecture")?.content as Record<string, any> | undefined;
   
-  // If we have AI generated nodes/edges, use them. If not, fallback.
-  // Wait, if it's the old format? Let's just fallback if nodes[0].position is missing.
   const rawNodes = arch?.nodes as any[];
   const rawEdges = (arch?.edges || arch?.connections) as any[];
 
@@ -38,30 +52,36 @@ export default async function ArchitecturePage({ params }: Props) {
   let edges = defaultEdges;
 
   if (rawNodes && rawNodes.length > 0 && typeof rawNodes[0].position === "object") {
-    nodes = rawNodes;
+    nodes = rawNodes.map(n => ({
+      ...n,
+      type: 'architecture',
+      data: {
+        ...n.data,
+        type: n.data.type || 'server',
+        tech: n.data.tech || n.data.techStack?.[0]?.name || "Tech",
+        aiNotes: n.data.aiNotes || "Detailed notes available in project insights.",
+        efficiencyGrade: n.data.efficiencyGrade || "A"
+      }
+    }));
   }
+  
   if (rawEdges && rawEdges.length > 0) {
     edges = rawEdges.map(e => ({
       id: e.id || `e-${e.source || e.from}-${e.target || e.to}`,
       source: e.source || e.from,
       target: e.target || e.to,
-      label: e.label,
-      animated: e.animated || false
+      label: e.label || "Flow",
+      animated: e.animated || true
     }));
   }
 
   return (
-    <div className="p-8 h-full flex flex-col">
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h2 className="text-2xl font-bold text-on-surface">Architecture Matrix</h2>
-          <p className="text-on-surface-variant text-sm mt-1">Interactive system topology — drag nodes and sync changes</p>
-        </div>
-      </div>
-
-      <div className="flex-1 relative">
-         <ArchitectureCanvas initialNodes={nodes} initialEdges={edges} />
-      </div>
+    <div className="h-[calc(100vh-64px)] bg-[#0b0f1a] relative overflow-hidden">
+      <ArchitectureCanvas 
+         initialNodes={nodes} 
+         initialEdges={edges} 
+         projectTitle={projectTitle}
+       />
     </div>
   );
 }

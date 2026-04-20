@@ -19,8 +19,7 @@ export default function WizardStep1() {
 
   const handleNext = () => {
     setIdeaText(text);
-    setStep(2);
-    router.push("/new/questions");
+    router.push("/new/vision");
   };
 
   const handleSuggestion = (suggestion: string) => {

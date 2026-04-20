@@ -18,9 +18,16 @@ interface WizardState {
   isGenerating: boolean;
   generationProgress: number;
   generatedProjectId: string | null;
+  vision: {
+    title: string;
+    summary: string;
+    pillars: { title: string; description: string; icon: string }[];
+    scaleGoal: string;
+  } | null;
 
   setStep: (step: WizardStep) => void;
   setIdeaText: (text: string) => void;
+  setVision: (vision: any) => void;
   addAnswer: (answer: WizardAnswer) => void;
   setSelectedStyle: (style: string) => void;
   setProjectName: (name: string) => void;
@@ -39,12 +46,14 @@ const initialState = {
   isGenerating: false,
   generationProgress: 0,
   generatedProjectId: null as string | null,
+  vision: null as any,
 };
 
 export const useWizardStore = create<WizardState>((set) => ({
   ...initialState,
   setStep: (step) => set({ currentStep: step }),
   setIdeaText: (text) => set({ ideaText: text }),
+  setVision: (vision) => set({ vision }),
   addAnswer: (answer) =>
     set((state) => ({ answers: [...state.answers, answer] })),
   setSelectedStyle: (style) => set({ selectedStyle: style }),
@@ -52,5 +61,5 @@ export const useWizardStore = create<WizardState>((set) => ({
   setIsGenerating: (generating) => set({ isGenerating: generating }),
   setGenerationProgress: (progress) => set({ generationProgress: progress }),
   setGeneratedProjectId: (id) => set({ generatedProjectId: id }),
-  reset: () => set(initialState),
+  reset: () => set({ ...initialState }),
 }));
